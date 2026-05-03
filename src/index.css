@@ -1,0 +1,66 @@
+@import "tailwindcss";
+
+@theme {
+  --color-premium-pink: #fdf2f8;
+  --color-premium-purple: #f5f3ff;
+  --color-romantic-red: #fee2e2;
+  --font-serif: "Playfair Display", serif;
+  --font-sans: "Inter", sans-serif;
+}
+
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  color-scheme: light;
+  background-color: #ffffff;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Custom Premium Background Gradient */
+.bg-premium-gradient {
+  background: linear-gradient(
+    135deg,
+    var(--color-premium-pink) 0%,
+    var(--color-premium-purple) 50%,
+    var(--color-romantic-red) 100%
+  );
+  background-attachment: fixed;
+}
+
+/* Glassmorphism */
+.glass-card {
+  background: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.07);
+}
+
+/* Typography */
+.font-wedding {
+  font-family: 'Playfair Display', serif;
+}
+
+/* Scroll Lock */
+.no-scroll {
+  overflow: hidden;
+}
+
+/* Custom 3D Transformations */
+.perspective-2000 {
+  perspective: 2000px;
+}
+
+.preserve-3d {
+  transform-style: preserve-3d;
+}
+
+.backface-hidden {
+  backface-visibility: hidden;
+}
