@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const TimeUnit = ({ value, label }) => (
-  <div className="flex flex-col items-center p-4 min-w-[80px] md:min-w-[120px] glass-card rounded-2xl">
-    <div className="relative h-12 md:h-16 overflow-hidden">
+  <div className="flex flex-col items-center p-3 md:p-6 glass-card rounded-2xl md:rounded-3xl border border-white/40 shadow-sm">
+    <div className="relative h-10 md:h-20 overflow-hidden">
       <AnimatePresence mode="popLayout">
         <motion.span
           key={value}
@@ -11,13 +11,13 @@ const TimeUnit = ({ value, label }) => (
           animate={{ y: 0, opacity: 1 }}
           exit={{ y: -20, opacity: 0 }}
           transition={{ duration: 0.5, ease: "easeOut" }}
-          className="block text-3xl md:text-5xl font-wedding text-slate-800"
+          className="block text-2xl md:text-6xl font-wedding text-slate-800"
         >
           {String(value).padStart(2, '0')}
         </motion.span>
       </AnimatePresence>
     </div>
-    <span className="text-[10px] md:text-xs uppercase tracking-widest text-slate-500 mt-2">{label}</span>
+    <span className="text-[8px] md:text-xs uppercase tracking-[0.2em] text-slate-500 mt-1 md:mt-3 font-medium">{label}</span>
   </div>
 );
 
@@ -48,17 +48,17 @@ const CountdownSection = () => {
   }, [targetDate]);
 
   return (
-    <section className="py-20 px-6 text-center">
+    <section className="py-16 md:py-32 px-4 md:px-6 text-center max-w-5xl mx-auto">
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
         viewport={{ once: true }}
       >
-        <h3 className="font-wedding text-2xl md:text-3xl text-slate-700 mb-2">The Countdown Begins</h3>
-        <p className="text-slate-500 text-sm mb-10 italic">Counting every second until we say "I Do"</p>
+        <h3 className="font-wedding text-xl md:text-4xl text-slate-700 mb-2 md:mb-4">The Countdown Begins</h3>
+        <p className="text-slate-500 text-[10px] md:text-base mb-8 md:mb-16 italic font-light">Counting every second until we say "I Do"</p>
         
-        <div className="flex justify-center gap-4 md:gap-8 flex-wrap">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-8">
           <TimeUnit value={timeLeft.days} label="Days" />
           <TimeUnit value={timeLeft.hours} label="Hours" />
           <TimeUnit value={timeLeft.minutes} label="Minutes" />

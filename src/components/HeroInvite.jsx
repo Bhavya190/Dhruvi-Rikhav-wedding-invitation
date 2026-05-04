@@ -20,18 +20,16 @@ const HeroInvite = ({ onOpen }) => {
   useEffect(() => {
     const timer = setTimeout(() => {
       handleOpen();
-    }, 7000); // Increased time to allow for the two-stage animation
+    }, 10000); // 10 seconds auto-open for mobile accessibility
     return () => clearTimeout(timer);
   }, []);
 
   const handleOpen = () => {
     if (!isLaceOpen) {
       setIsLaceOpen(true);
-      // Stage 2: Open doors after lace animation
       setTimeout(() => {
         setIsOpen(true);
         onOpen();
-        // Stage 3: Remove overlay
         setTimeout(() => setIsRemoved(true), 3000);
       }, 1000);
     }
@@ -42,13 +40,13 @@ const HeroInvite = ({ onOpen }) => {
   return (
     <>
       {/* Inside Invitation Content */}
-      <section className="relative min-h-screen flex items-center justify-center text-center px-6 overflow-hidden">
-        <div className="relative z-10">
+      <section className="relative min-h-[100svh] flex items-center justify-center text-center px-4 md:px-6 overflow-hidden">
+        <div className="relative z-10 w-full max-w-4xl mx-auto">
           <motion.h2 
             initial={{ opacity: 0, y: 20 }}
             animate={isOpen ? { opacity: 1, y: 0 } : {}}
             transition={{ delay: 0.5, duration: 1 }}
-            className="font-wedding text-5xl md:text-8xl text-slate-800 mb-6"
+            className="font-wedding text-5xl md:text-8xl text-slate-800 mb-4 md:mb-8 leading-tight"
           >
             {weddingData.bride} & {weddingData.groom}
           </motion.h2>
@@ -56,7 +54,7 @@ const HeroInvite = ({ onOpen }) => {
             initial={{ opacity: 0 }}
             animate={isOpen ? { opacity: 1 } : {}}
             transition={{ delay: 1, duration: 1 }}
-            className="text-slate-600 italic text-lg md:text-xl max-w-lg mx-auto mb-10 leading-relaxed"
+            className="text-slate-600 italic text-base md:text-xl max-w-md mx-auto mb-8 md:mb-12 leading-relaxed px-4"
           >
             Together with their families, invite you to celebrate their wedding
           </motion.p>
@@ -64,14 +62,14 @@ const HeroInvite = ({ onOpen }) => {
             initial={{ opacity: 0, scale: 0.8 }}
             animate={isOpen ? { opacity: 1, scale: 1 } : {}}
             transition={{ delay: 1.5, duration: 1 }}
-            className="flex flex-col md:flex-row gap-6 justify-center items-center"
+            className="flex flex-col md:flex-row gap-4 md:gap-8 justify-center items-center"
           >
-            <div className="px-8 py-3 border-y border-slate-300">
-              <p className="text-sm md:text-base tracking-[0.3em] uppercase text-slate-500 font-light">February 11, 2027</p>
+            <div className="px-6 md:px-10 py-2 md:py-4 border-y border-slate-300">
+              <p className="text-xs md:text-base tracking-[0.3em] uppercase text-slate-500 font-light">Feb 11, 2027</p>
             </div>
-            <div className="text-pink-300 text-2xl font-wedding">&</div>
-            <div className="px-8 py-3 border-y border-slate-300">
-              <p className="text-sm md:text-base tracking-[0.3em] uppercase text-slate-500 font-light">February 12, 2027</p>
+            <div className="text-pink-300 text-xl md:text-3xl font-wedding">&</div>
+            <div className="px-6 md:px-10 py-2 md:py-4 border-y border-slate-300">
+              <p className="text-xs md:text-base tracking-[0.3em] uppercase text-slate-500 font-light">Feb 12, 2027</p>
             </div>
           </motion.div>
           
@@ -79,13 +77,13 @@ const HeroInvite = ({ onOpen }) => {
             initial={{ opacity: 0 }}
             animate={isOpen ? { opacity: 1 } : {}}
             transition={{ delay: 2.5, duration: 1 }}
-            className="mt-20 flex flex-col items-center gap-4"
+            className="mt-12 md:mt-24 flex flex-col items-center gap-3"
           >
-            <span className="text-[10px] uppercase tracking-[0.4em] text-slate-400">Scroll to explore</span>
+            <span className="text-[9px] md:text-[10px] uppercase tracking-[0.4em] text-slate-400">Scroll to explore</span>
             <motion.div 
               animate={{ y: [0, 10, 0] }}
               transition={{ duration: 2, repeat: Infinity }}
-              className="w-[1px] h-16 bg-gradient-to-b from-pink-200 to-transparent"
+              className="w-[1px] h-12 md:h-20 bg-gradient-to-b from-pink-200 to-transparent"
             />
           </motion.div>
         </div>
@@ -103,13 +101,13 @@ const HeroInvite = ({ onOpen }) => {
               {/* Left Door */}
               <motion.div 
                 initial={{ rotateY: 0 }}
-                animate={isOpen ? { rotateY: -110 } : { rotateY: 0 }}
+                animate={isOpen ? { rotateY: -115 } : { rotateY: 0 }}
                 transition={{ duration: 2.5, ease: [0.45, 0, 0.55, 1] }}
                 style={{ transformOrigin: 'left' }}
                 className="relative w-1/2 h-full bg-[#800000] border-r border-red-900/50 shadow-[20px_0_50px_rgba(0,0,0,0.5)] overflow-hidden"
               >
                 <div className="absolute inset-0 bg-gradient-to-r from-red-950 via-red-700 to-red-900 opacity-90" />
-                <div className="absolute inset-0 bg-[repeating-linear-gradient(90deg,transparent,transparent_40px,rgba(255,255,255,0.05)_41px,transparent_42px)]" />
+                <div className="absolute inset-0 bg-[repeating-linear-gradient(90deg,transparent,transparent_30px,rgba(255,255,255,0.03)_31px,transparent_32px)]" />
                 {sparkles.slice(0, 20).map((_, i) => (
                   <Sparkle key={i} style={{ top: `${Math.random() * 100}%`, left: `${Math.random() * 100}%` }} />
                 ))}
@@ -118,76 +116,97 @@ const HeroInvite = ({ onOpen }) => {
               {/* Right Door */}
               <motion.div 
                 initial={{ rotateY: 0 }}
-                animate={isOpen ? { rotateY: 110 } : { rotateY: 0 }}
+                animate={isOpen ? { rotateY: 115 } : { rotateY: 0 }}
                 transition={{ duration: 2.5, ease: [0.45, 0, 0.55, 1] }}
                 style={{ transformOrigin: 'right' }}
                 className="relative w-1/2 h-full bg-[#800000] border-l border-red-900/50 shadow-[-20px_0_50px_rgba(0,0,0,0.5)] overflow-hidden"
               >
                 <div className="absolute inset-0 bg-gradient-to-r from-red-900 via-red-700 to-red-950 opacity-90" />
-                <div className="absolute inset-0 bg-[repeating-linear-gradient(90deg,transparent,transparent_40px,rgba(255,255,255,0.05)_41px,transparent_42px)]" />
+                <div className="absolute inset-0 bg-[repeating-linear-gradient(90deg,transparent,transparent_30px,rgba(255,255,255,0.03)_31px,transparent_32px)]" />
                 {sparkles.slice(20).map((_, i) => (
                   <Sparkle key={i} style={{ top: `${Math.random() * 100}%`, left: `${Math.random() * 100}%` }} />
                 ))}
               </motion.div>
 
-              {/* Lace Ribbon (Horizontal band) */}
+              {/* Thin Gold Rope */}
               {!isOpen && (
-                <>
+                <div className="absolute inset-0 flex items-center pointer-events-none z-15">
+                  {/* Left Rope Half */}
                   <motion.div 
                     initial={{ scaleX: 1, opacity: 1 }}
                     animate={isLaceOpen ? { x: '-100%', opacity: 0 } : { scaleX: 1, opacity: 1 }}
-                    transition={{ duration: 1.2, ease: "easeInOut" }}
-                    className="absolute left-0 top-1/2 -translate-y-1/2 w-1/2 h-12 z-15 pointer-events-none"
+                    transition={{ duration: 1.5, ease: [0.45, 0, 0.55, 1] }}
+                    className="w-1/2 h-[3px] shadow-[0_1px_3px_rgba(0,0,0,0.3)]"
                     style={{ 
-                      background: 'linear-gradient(90deg, transparent, #d4af37)',
-                      maskImage: 'radial-gradient(circle, transparent 2px, black 1px)',
-                      maskSize: '10px 10px'
+                      background: 'repeating-linear-gradient(45deg, #d4af37, #d4af37 2px, #b8860b 4px)',
+                      borderRadius: '0 2px 2px 0'
                     }}
                   />
+                  {/* Right Rope Half */}
                   <motion.div 
                     initial={{ scaleX: 1, opacity: 1 }}
                     animate={isLaceOpen ? { x: '100%', opacity: 0 } : { scaleX: 1, opacity: 1 }}
-                    transition={{ duration: 1.2, ease: "easeInOut" }}
-                    className="absolute right-0 top-1/2 -translate-y-1/2 w-1/2 h-12 z-15 pointer-events-none"
+                    transition={{ duration: 1.5, ease: [0.45, 0, 0.55, 1] }}
+                    className="w-1/2 h-[3px] shadow-[0_1px_3px_rgba(0,0,0,0.3)]"
                     style={{ 
-                      background: 'linear-gradient(-90deg, transparent, #d4af37)',
-                      maskImage: 'radial-gradient(circle, transparent 2px, black 1px)',
-                      maskSize: '10px 10px'
+                      background: 'repeating-linear-gradient(45deg, #d4af37, #d4af37 2px, #b8860b 4px)',
+                      borderRadius: '2px 0 0 2px'
                     }}
                   />
-                </>
+                </div>
               )}
 
-              {/* Central Gold Monogram Button */}
+              {/* Central Gold Monogram Button with Knot Effect */}
               {!isOpen && (
-                <motion.div 
-                  initial={{ scale: 0, opacity: 0 }}
-                  animate={{ scale: 1, opacity: 1 }}
-                  exit={{ scale: 0.8, opacity: 0 }}
-                  className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-20 flex flex-col items-center"
-                >
-                  <button 
-                    onClick={handleOpen}
-                    className="group relative w-32 h-32 md:w-40 md:h-40 rounded-full flex items-center justify-center cursor-pointer transition-transform hover:scale-110 active:scale-95"
+                <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-20">
+                  <motion.div 
+                    initial={{ scale: 0, opacity: 0 }}
+                    animate={{ scale: 1, opacity: 1 }}
+                    exit={{ scale: 0.8, opacity: 0 }}
+                    className="relative flex flex-col items-center"
                   >
-                    <div className="absolute inset-0 rounded-full border-2 border-[#d4af37] shadow-[0_0_20px_rgba(212,175,55,0.4)] bg-[#800000]/20 backdrop-blur-sm" />
-                    <div className="relative z-10 flex flex-col items-center">
-                      <span className="font-wedding text-3xl md:text-5xl text-[#d4af37] drop-shadow-md">R&D</span>
-                    </div>
-                    <motion.div 
-                      animate={{ scale: [1, 1.2, 1], opacity: [0.3, 0, 0.3] }}
-                      transition={{ duration: 3, repeat: Infinity }}
-                      className="absolute inset-0 border border-[#d4af37] rounded-full"
-                    />
-                  </button>
-                  <motion.span 
-                    animate={isLaceOpen ? { opacity: 0 } : { opacity: [0.4, 1, 0.4] }}
-                    transition={{ duration: 2, repeat: Infinity }}
-                    className="text-[#d4af37] text-[10px] md:text-xs tracking-[0.4em] uppercase mt-4 font-light drop-shadow-sm"
-                  >
-                    {isLaceOpen ? 'Opening...' : 'Open Me'}
-                  </motion.span>
-                </motion.div>
+                    {/* Decorative Rope Knot/Loops */}
+                    <AnimatePresence>
+                      {!isLaceOpen && (
+                        <motion.div 
+                          exit={{ scale: 1.5, opacity: 0, rotate: 15 }}
+                          transition={{ duration: 0.8 }}
+                          className="absolute inset-0 flex items-center justify-center -z-10"
+                        >
+                          <div className="relative w-full h-full">
+                            {/* Left Loop */}
+                            <div className="absolute top-1/2 right-1/2 w-12 h-8 md:w-16 md:h-10 border-2 border-[#d4af37] rounded-full rotate-[-30deg] -translate-y-1/2 translate-x-2 opacity-60" />
+                            {/* Right Loop */}
+                            <div className="absolute top-1/2 left-1/2 w-12 h-8 md:w-16 md:h-10 border-2 border-[#d4af37] rounded-full rotate-[30deg] -translate-y-1/2 -translate-x-2 opacity-60" />
+                          </div>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+
+                    <button 
+                      onClick={handleOpen}
+                      className="group relative w-28 h-28 md:w-44 md:h-44 rounded-full flex items-center justify-center cursor-pointer transition-transform hover:scale-110 active:scale-90"
+                    >
+                      <div className="absolute inset-0 rounded-full border-2 border-[#d4af37] shadow-[0_0_20px_rgba(212,175,55,0.3)] bg-[#800000]/40 backdrop-blur-md" />
+                      <div className="relative z-10 flex flex-col items-center">
+                        <span className="font-wedding text-2xl md:text-5xl text-[#d4af37] drop-shadow-md">R&D</span>
+                      </div>
+                      <motion.div 
+                        animate={{ scale: [1, 1.2, 1], opacity: [0.3, 0, 0.3] }}
+                        transition={{ duration: 3, repeat: Infinity }}
+                        className="absolute inset-0 border border-[#d4af37]/50 rounded-full"
+                      />
+                    </button>
+                    
+                    <motion.span 
+                      animate={isLaceOpen ? { opacity: 0 } : { opacity: [0.4, 1, 0.4] }}
+                      transition={{ duration: 2, repeat: Infinity }}
+                      className="absolute top-full mt-4 md:mt-6 text-[#d4af37] text-[9px] md:text-xs tracking-[0.4em] uppercase font-light drop-shadow-sm whitespace-nowrap"
+                    >
+                      {isLaceOpen ? 'Untying...' : 'Tap to Untie'}
+                    </motion.span>
+                  </motion.div>
+                </div>
               )}
             </div>
           </motion.div>

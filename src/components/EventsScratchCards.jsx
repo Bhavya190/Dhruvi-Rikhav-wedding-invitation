@@ -11,37 +11,41 @@ const ScratchCard = ({ event }) => {
   useEffect(() => {
     const canvas = canvasRef.current;
     const ctx = canvas.getContext('2d');
-    const width = canvas.width;
-    const height = canvas.height;
-
-    // Fill canvas with "scratch layer"
-    const gradient = ctx.createLinearGradient(0, 0, width, height);
-    gradient.addColorStop(0, '#fdf2f8');
-    gradient.addColorStop(0.5, '#f5f3ff');
-    gradient.addColorStop(1, '#fee2e2');
     
-    ctx.fillStyle = gradient;
-    ctx.fillRect(0, 0, width, height);
+    const resizeCanvas = () => {
+      const rect = canvas.getBoundingClientRect();
+      canvas.width = rect.width;
+      canvas.height = rect.height;
+      
+      const gradient = ctx.createLinearGradient(0, 0, canvas.width, canvas.height);
+      gradient.addColorStop(0, '#fdf2f8');
+      gradient.addColorStop(0.5, '#f5f3ff');
+      gradient.addColorStop(1, '#fee2e2');
+      
+      ctx.fillStyle = gradient;
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-    // Add some pattern/text to scratch layer
-    ctx.fillStyle = '#94a3b8';
-    ctx.font = 'italic 14px serif';
-    ctx.textAlign = 'center';
-    ctx.fillText('Scratch to Reveal', width / 2, height / 2 + 5);
+      ctx.fillStyle = '#94a3b8';
+      ctx.font = 'italic 12px serif';
+      ctx.textAlign = 'center';
+      ctx.fillText('Scratch Here', canvas.width / 2, canvas.height / 2 + 5);
+    };
 
-    // Drawing logic
+    resizeCanvas();
+    window.addEventListener('resize', resizeCanvas);
+
     let isDrawing = false;
 
     const scratch = (x, y) => {
       ctx.globalCompositeOperation = 'destination-out';
       ctx.beginPath();
-      ctx.arc(x, y, 20, 0, Math.PI * 2);
+      ctx.arc(x, y, 18, 0, Math.PI * 2);
       ctx.fill();
       checkReveal();
     };
 
     const checkReveal = () => {
-      const imageData = ctx.getImageData(0, 0, width, height);
+      const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
       const pixels = imageData.data;
       let clearPixels = 0;
 
@@ -50,7 +54,7 @@ const ScratchCard = ({ event }) => {
       }
 
       const percent = (clearPixels / (pixels.length / 4)) * 100;
-      if (percent > 40 && !isScratchedEnough) {
+      if (percent > 30 && !isScratchedEnough) {
         setIsScratchedEnough(true);
         setTimeout(() => setIsRevealed(true), 300);
       }
@@ -94,35 +98,36 @@ const ScratchCard = ({ event }) => {
     canvas.addEventListener('touchmove', handleTouchMove);
 
     return () => {
+      window.removeEventListener('resize', resizeCanvas);
       canvas.removeEventListener('mousedown', handleMouseDown);
       window.removeEventListener('mousemove', handleMouseMove);
       window.removeEventListener('mouseup', handleMouseUp);
       canvas.removeEventListener('touchstart', handleTouchStart);
       canvas.removeEventListener('touchmove', handleTouchMove);
     };
-  }, []);
+  }, [isScratchedEnough]);
 
   return (
-    <div className="relative w-full h-[220px] md:h-[260px] rounded-3xl overflow-hidden shadow-lg glass-card group">
+    <div className="relative w-full h-[190px] md:h-[260px] rounded-2xl md:rounded-3xl overflow-hidden shadow-md md:shadow-lg glass-card group">
       {/* Event Details (Hidden underneath) */}
-      <div className="absolute inset-0 p-6 flex flex-col justify-between bg-white/60">
+      <div className="absolute inset-0 p-3 md:p-6 flex flex-col justify-start gap-y-4 md:justify-between bg-white/60">
         <div>
-          <h4 className="font-wedding text-xl text-slate-800 mb-1">{event.name}</h4>
-          <p className="text-xs text-slate-500 italic mb-4">{event.description}</p>
+          <h4 className="font-wedding text-xl md:text-2xl text-slate-800 mb-0.5 md:mb-1 leading-tight">{event.name}</h4>
+          <p className="text-xs md:text-base text-slate-500 italic leading-tight opacity-90">{event.description}</p>
         </div>
         
-        <div className="space-y-2">
-          <div className="flex items-center gap-2 text-slate-600">
-            <Calendar size={14} className="text-pink-400" />
-            <span className="text-sm">{event.date}</span>
+        <div className="space-y-1.5 md:space-y-2">
+          <div className="flex items-center gap-2 md:gap-3 text-slate-600">
+            <Calendar size={16} className="text-pink-400 md:scale-125" />
+            <span className="text-sm md:text-lg font-semibold">{event.date}</span>
           </div>
-          <div className="flex items-center gap-2 text-slate-600">
-            <Clock size={14} className="text-purple-400" />
-            <span className="text-sm">{event.time}</span>
+          <div className="flex items-center gap-2 md:gap-3 text-slate-600">
+            <Clock size={16} className="text-purple-400 md:scale-125" />
+            <span className="text-sm md:text-lg font-semibold">{event.time}</span>
           </div>
-          <div className="flex items-center gap-2 text-slate-600">
-            <MapPin size={14} className="text-rose-400" />
-            <span className="text-sm">{event.location}</span>
+          <div className="flex items-center gap-2 md:gap-3 text-slate-600">
+            <MapPin size={16} className="text-rose-400 md:scale-125" />
+            <span className="text-sm md:text-lg truncate font-semibold">{event.location}</span>
           </div>
         </div>
       </div>
@@ -130,8 +135,6 @@ const ScratchCard = ({ event }) => {
       {/* Scratch Layer */}
       <motion.canvas
         ref={canvasRef}
-        width={400}
-        height={400}
         animate={isRevealed ? { opacity: 0, scale: 1.1 } : { opacity: 1 }}
         transition={{ duration: 0.8 }}
         className={`absolute inset-0 w-full h-full cursor-crosshair z-10 touch-none ${isRevealed ? 'pointer-events-none' : ''}`}
@@ -142,27 +145,27 @@ const ScratchCard = ({ event }) => {
 
 const EventsScratchCards = () => {
   return (
-    <section className="py-24 px-6 max-w-6xl mx-auto">
-      <div className="text-center mb-16">
+    <section className="py-16 md:py-32 px-3 md:px-6 max-w-7xl mx-auto">
+      <div className="text-center mb-10 md:mb-20">
         <motion.h2 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="font-wedding text-3xl md:text-5xl text-slate-800 mb-4"
+          className="font-wedding text-3xl md:text-6xl text-slate-800 mb-4"
         >
           The Ceremonies
         </motion.h2>
-        <p className="text-slate-500 italic">Gently scratch each card to reveal the details</p>
+        <p className="text-slate-500 text-[10px] md:text-lg italic font-light">Gently scratch each card to reveal the details</p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-10">
         {weddingData.events.map((event) => (
           <motion.div
             key={event.id}
-            initial={{ opacity: 0, scale: 0.9 }}
+            initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            transition={{ delay: event.id * 0.1 }}
+            transition={{ delay: event.id * 0.05 }}
           >
             <ScratchCard event={event} />
           </motion.div>
