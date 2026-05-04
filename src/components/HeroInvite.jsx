@@ -40,51 +40,141 @@ const HeroInvite = ({ onOpen }) => {
   return (
     <>
       {/* Inside Invitation Content */}
-      <section className="relative min-h-[100svh] flex items-center justify-center text-center px-4 md:px-6 overflow-hidden">
-        <div className="relative z-10 w-full max-w-4xl mx-auto">
-          <motion.h2 
+      <section className="relative h-[100svh] flex flex-col items-center justify-between text-center px-4 md:px-6 overflow-hidden bg-[#fdfcf0]">
+        {/* Boho Watercolor Canopy Banner - Advanced Masked Transition */}
+        <div className="absolute -top-1 left-0 w-full h-[36vh] md:h-[46vh] z-0 overflow-hidden"
+             style={{ maskImage: 'linear-gradient(to bottom, black 80%, transparent 100%)', WebkitMaskImage: 'linear-gradient(to bottom, black 80%, transparent 100%)' }}>
+          <motion.img 
+            initial={{ scale: 1.2, opacity: 0, y: -20 }}
+            animate={isOpen ? { scale: 1.12, opacity: 1, y: -30 } : {}}
+            transition={{ duration: 2, ease: "easeOut" }}
+            src="/boho_wedding_canopy_watercolor_1777878107620.png"
+            alt="Boho Canopy"
+            className="w-full h-full object-cover object-top opacity-95"
+            style={{ marginTop: '-8%' }}
+          />
+        </div>
+
+        {/* Indian Couple Illustration - Advanced Masked Transition */}
+        <div className="absolute -bottom-1 left-0 w-full h-[45vh] md:h-[55vh] z-0 overflow-hidden"
+             style={{ maskImage: 'linear-gradient(to top, black 80%, transparent 100%)', WebkitMaskImage: 'linear-gradient(to top, black 80%, transparent 100%)' }}>
+          <motion.img 
+            initial={{ y: 50, opacity: 0, scale: 1.2 }}
+            animate={isOpen ? { y: 0, opacity: 1, scale: 1.12 } : {}}
+            transition={{ delay: 0.8, duration: 2, ease: "easeOut" }}
+            src="/indian_couple_back_view_boho_1777881225202.png"
+            alt="Bride and Groom"
+            className="w-full h-full object-cover opacity-95"
+            style={{ objectPosition: 'center 20%' }}
+          />
+        </div>
+
+        {/* Cinematic Atmospheric Layers */}
+        <div className="absolute inset-0 z-0 pointer-events-none">
+          {/* Floating Soft Orbs - synchronized with glowing lanterns */}
+          {[...Array(6)].map((_, i) => (
+            <motion.div
+              key={i}
+              initial={{ 
+                x: Math.random() * 100 + '%', 
+                y: Math.random() * 40 + '%',
+                opacity: 0
+              }}
+              animate={isOpen ? { 
+                y: ['10%', '50%', '10%'],
+                opacity: [0.1, 0.3, 0.1]
+              } : {}}
+              transition={{ 
+                duration: 10 + Math.random() * 10, 
+                repeat: Infinity, 
+                ease: "easeInOut" 
+              }}
+              className="absolute w-32 h-32 md:w-48 md:h-48 rounded-full bg-[#fff4cc] blur-[60px]"
+            />
+          ))}
+
+          {/* Silk Texture Layer */}
+          <div className="absolute inset-0 opacity-[0.03]" 
+               style={{ 
+                 backgroundImage: 'url("https://www.transparenttextures.com/patterns/silk.png")',
+                 backgroundRepeat: 'repeat'
+               }} 
+          />
+        </div>
+
+        {/* Romantic Flower Rain - High-Visibility Realistic Petals */}
+        <div className="absolute inset-0 z-5 pointer-events-none overflow-hidden">
+          {isOpen && [...Array(16)].map((_, i) => (
+            <motion.div
+              key={i}
+              initial={{ 
+                top: -30, 
+                left: `${Math.random() * 100}%`,
+                opacity: 0,
+                rotate: Math.random() * 360,
+                scale: Math.random() * 0.4 + 0.6
+              }}
+              animate={{ 
+                top: '100vh',
+                left: `${(Math.random() * 30 - 15) + (i * 6)}%`,
+                opacity: [0, 1, 1, 0],
+                rotate: 720,
+              }}
+              transition={{ 
+                duration: 8 + Math.random() * 12,
+                repeat: Infinity,
+                delay: i * 1.5,
+                ease: "linear"
+              }}
+              className="absolute"
+            >
+              {/* Detailed Realistic Rose Petal Shape */}
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" className="drop-shadow-[0_2px_2px_rgba(0,0,0,0.1)]">
+                <path 
+                  d="M12 2C12 2 18 4 20 10C22 16 18 22 12 22C6 22 2 16 4 10C6 4 12 2 12 2Z" 
+                  fill={i % 2 === 0 ? "#ff99aa" : "#ffb6c1"} 
+                  className="opacity-90"
+                />
+                <path 
+                  d="M12 2C13 5 16 8 18 10" 
+                  stroke="rgba(255,255,255,0.4)" 
+                  strokeWidth="0.5" 
+                  strokeLinecap="round"
+                />
+              </svg>
+            </motion.div>
+          ))}
+        </div>
+
+        {/* Content Container - Positioned to clear the couple's heads */}
+        <div className="relative z-10 w-full max-w-5xl mx-auto flex-1 flex flex-col justify-start pt-[26vh] md:pt-[34vh] transition-all duration-700">
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={isOpen ? { opacity: 1, y: 0 } : {}}
-            transition={{ delay: 0.5, duration: 1 }}
-            className="font-wedding text-5xl md:text-8xl text-slate-800 mb-4 md:mb-8 leading-tight"
+            transition={{ delay: 0.6, duration: 1.2 }}
+            className="flex flex-col items-center"
           >
-            {weddingData.bride} & {weddingData.groom}
-          </motion.h2>
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={isOpen ? { opacity: 1 } : {}}
-            transition={{ delay: 1, duration: 1 }}
-            className="text-slate-600 italic text-base md:text-xl max-w-md mx-auto mb-8 md:mb-12 leading-relaxed px-4"
-          >
-            Together with their families, invite you to celebrate their wedding
-          </motion.p>
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={isOpen ? { opacity: 1, scale: 1 } : {}}
-            transition={{ delay: 1.5, duration: 1 }}
-            className="flex flex-col md:flex-row gap-4 md:gap-8 justify-center items-center"
-          >
-            <div className="px-6 md:px-10 py-2 md:py-4 border-y border-slate-300">
-              <p className="text-xs md:text-base tracking-[0.3em] uppercase text-slate-500 font-light">Feb 11, 2027</p>
-            </div>
-            <div className="text-pink-300 text-xl md:text-3xl font-wedding">&</div>
-            <div className="px-6 md:px-10 py-2 md:py-4 border-y border-slate-300">
-              <p className="text-xs md:text-base tracking-[0.3em] uppercase text-slate-500 font-light">Feb 12, 2027</p>
-            </div>
-          </motion.div>
-          
-          <motion.div 
-            initial={{ opacity: 0 }}
-            animate={isOpen ? { opacity: 1 } : {}}
-            transition={{ delay: 2.5, duration: 1 }}
-            className="mt-12 md:mt-24 flex flex-col items-center gap-3"
-          >
-            <span className="text-[9px] md:text-[10px] uppercase tracking-[0.4em] text-slate-400">Scroll to explore</span>
+            <h2 className="flex flex-col items-center justify-center mb-2 md:mb-4">
+              <span className="font-wedding text-6xl md:text-9xl text-[#2c3e50] drop-shadow-sm tracking-tight leading-none">{weddingData.bride}</span>
+              <span className="font-wedding text-4xl md:text-6xl text-[#d4af37] py-2">Weds</span>
+              <span className="font-wedding text-6xl md:text-9xl text-[#2c3e50] drop-shadow-sm tracking-tight leading-none">{weddingData.groom}</span>
+            </h2>
+            
             <motion.div 
-              animate={{ y: [0, 10, 0] }}
-              transition={{ duration: 2, repeat: Infinity }}
-              className="w-[1px] h-12 md:h-20 bg-gradient-to-b from-pink-200 to-transparent"
+              initial={{ scaleX: 0 }}
+              animate={isOpen ? { scaleX: 1 } : { scaleX: 0 }}
+              transition={{ delay: 1.2, duration: 1.5 }}
+              className="w-16 md:w-40 h-[1px] bg-gradient-to-r from-transparent via-[#d4af37] to-transparent mb-3 md:mb-5"
             />
+
+            <motion.p
+              initial={{ opacity: 0 }}
+              animate={isOpen ? { opacity: 1 } : {}}
+              transition={{ delay: 1.8, duration: 1 }}
+              className="text-slate-500 uppercase tracking-[0.2em] text-[8px] md:text-xs font-medium max-w-xs md:max-w-md mx-auto leading-relaxed px-4"
+            >
+              Together with their families, invite you to celebrate their wedding
+            </motion.p>
           </motion.div>
         </div>
       </section>
