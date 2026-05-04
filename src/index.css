@@ -3,6 +3,7 @@
 @theme {
   --color-premium-pink: #fdf2f8;
   --color-premium-purple: #f5f3ff;
+  --color-premium-green: #f0fdf4;
   --color-romantic-red: #fee2e2;
   --font-serif: "Playfair Display", serif;
   --font-sans: "Inter", sans-serif;
@@ -32,6 +33,15 @@ body {
     var(--color-romantic-red) 100%
   );
   background-attachment: fixed;
+}
+
+.bg-couple-gradient {
+  background: linear-gradient(
+    135deg,
+    #f5f3ff 0%,
+    #fdf2f8 50%,
+    #f0fdf4 100%
+  );
 }
 
 /* Glassmorphism */
