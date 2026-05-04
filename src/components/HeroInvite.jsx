@@ -204,20 +204,30 @@ const HeroInvite = ({ onOpen }) => {
 
                     <button 
                       onClick={handleOpen}
-                      className="group relative w-28 h-28 md:w-44 md:h-44 rounded-full flex items-center justify-center cursor-pointer transition-all hover:scale-110 active:scale-95 shadow-[0_10px_30px_rgba(0,0,0,0.3)]"
+                      className="group relative w-36 h-36 md:w-64 md:h-64 rounded-full flex items-center justify-center cursor-pointer transition-all hover:scale-110 active:scale-95 shadow-[0_15px_50px_rgba(0,0,0,0.4)]"
                     >
-                      {/* Semi-Transparent Red Body - Allows Heart to show through */}
-                      <div className="absolute inset-0 rounded-full border-2 border-[#d4af37] bg-[#800000]/50 backdrop-blur-md shadow-[0_0_20px_rgba(212,175,55,0.3)]" />
+                      {/* High-Transparency Ivory Glass */}
+                      <div className="absolute inset-0 rounded-full border border-white/20 bg-white/25 backdrop-blur-sm shadow-inner" />
                       
-                      <div className="relative z-10 flex flex-col items-center">
-                        <span className="font-wedding text-3xl md:text-6xl text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.5)] font-bold tracking-wider">R&D</span>
-                      </div>
+                      {/* Custom SVG Monogram Design - Minimalist Style */}
+                      <svg viewBox="0 0 100 100" className="relative z-10 w-full h-full p-1">
+                        {/* Clear Signature Typography - Perfectly Centered */}
+                        <text 
+                          x="50" 
+                          y="50" 
+                          textAnchor="middle" 
+                          dominantBaseline="central"
+                          className="font-wedding text-[44px] md:text-[56px] fill-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.4)] select-none"
+                        >
+                          R&D
+                        </text>
+                      </svg>
 
                       {/* Pulse effect */}
                       <motion.div 
-                        animate={{ scale: [1, 1.15, 1], opacity: [0.5, 0, 0.5] }}
-                        transition={{ duration: 2.5, repeat: Infinity }}
-                        className="absolute inset-[-4px] border-2 border-[#d4af37]/30 rounded-full"
+                        animate={{ scale: [1, 1.1, 1], opacity: [0.3, 0, 0.3] }}
+                        transition={{ duration: 3, repeat: Infinity }}
+                        className="absolute inset-[-10px] border border-[#d4af37]/20 rounded-full"
                       />
                     </button>
                     
