@@ -128,7 +128,7 @@ const HeroInvite = ({ onOpen }) => {
                 ))}
               </motion.div>
 
-              {/* Thin Gold Rope */}
+              {/* Thicker Gold Rope */}
               {!isOpen && (
                 <div className="absolute inset-0 flex items-center pointer-events-none z-15">
                   {/* Left Rope Half */}
@@ -136,10 +136,10 @@ const HeroInvite = ({ onOpen }) => {
                     initial={{ scaleX: 1, opacity: 1 }}
                     animate={isLaceOpen ? { x: '-100%', opacity: 0 } : { scaleX: 1, opacity: 1 }}
                     transition={{ duration: 1.5, ease: [0.45, 0, 0.55, 1] }}
-                    className="w-1/2 h-[3px] shadow-[0_1px_3px_rgba(0,0,0,0.3)]"
+                    className="w-1/2 h-[8px] shadow-[0_2px_4px_rgba(0,0,0,0.4)]"
                     style={{ 
-                      background: 'repeating-linear-gradient(45deg, #d4af37, #d4af37 2px, #b8860b 4px)',
-                      borderRadius: '0 2px 2px 0'
+                      background: 'repeating-linear-gradient(45deg, #d4af37, #d4af37 4px, #b8860b 8px)',
+                      borderRadius: '0 4px 4px 0'
                     }}
                   />
                   {/* Right Rope Half */}
@@ -147,10 +147,10 @@ const HeroInvite = ({ onOpen }) => {
                     initial={{ scaleX: 1, opacity: 1 }}
                     animate={isLaceOpen ? { x: '100%', opacity: 0 } : { scaleX: 1, opacity: 1 }}
                     transition={{ duration: 1.5, ease: [0.45, 0, 0.55, 1] }}
-                    className="w-1/2 h-[3px] shadow-[0_1px_3px_rgba(0,0,0,0.3)]"
+                    className="w-1/2 h-[8px] shadow-[0_2px_4px_rgba(0,0,0,0.4)]"
                     style={{ 
-                      background: 'repeating-linear-gradient(45deg, #d4af37, #d4af37 2px, #b8860b 4px)',
-                      borderRadius: '2px 0 0 2px'
+                      background: 'repeating-linear-gradient(45deg, #d4af37, #d4af37 4px, #b8860b 8px)',
+                      borderRadius: '4px 0 0 4px'
                     }}
                   />
                 </div>
@@ -165,43 +165,66 @@ const HeroInvite = ({ onOpen }) => {
                     exit={{ scale: 0.8, opacity: 0 }}
                     className="relative flex flex-col items-center"
                   >
-                    {/* Decorative Rope Knot/Loops */}
+                    {/* Perfect SVG Heart Rope Knot */}
                     <AnimatePresence>
                       {!isLaceOpen && (
                         <motion.div 
-                          exit={{ scale: 1.5, opacity: 0, rotate: 15 }}
+                          exit={{ scale: 1.5, opacity: 0 }}
                           transition={{ duration: 0.8 }}
                           className="absolute inset-0 flex items-center justify-center -z-10"
                         >
-                          <div className="relative w-full h-full">
-                            {/* Left Loop */}
-                            <div className="absolute top-1/2 right-1/2 w-12 h-8 md:w-16 md:h-10 border-2 border-[#d4af37] rounded-full rotate-[-30deg] -translate-y-1/2 translate-x-2 opacity-60" />
-                            {/* Right Loop */}
-                            <div className="absolute top-1/2 left-1/2 w-12 h-8 md:w-16 md:h-10 border-2 border-[#d4af37] rounded-full rotate-[30deg] -translate-y-1/2 -translate-x-2 opacity-60" />
-                          </div>
+                          <motion.svg 
+                            viewBox="0 0 100 100" 
+                            className="w-32 h-32 md:w-56 md:h-56 drop-shadow-[0_2px_8px_rgba(212,175,55,0.4)]"
+                            initial={{ scale: 0.8, opacity: 0 }}
+                            animate={{ scale: 1, opacity: 1 }}
+                          >
+                            <motion.path
+                              d="M 50 35 
+                                 C 50 35, 48 15, 25 15
+                                 C 5 15, 5 45, 25 60
+                                 L 50 85
+                                 L 75 60
+                                 C 95 45, 95 15, 75 15
+                                 C 52 15, 50 35, 50 35"
+                              fill="none"
+                              stroke="#d4af37"
+                              strokeWidth="4"
+                              strokeLinecap="round"
+                              initial={{ pathLength: 0 }}
+                              animate={{ pathLength: 1 }}
+                              transition={{ duration: 1.5, ease: "easeInOut" }}
+                            />
+                            {/* Decorative Central Knot */}
+                            <circle cx="50" cy="35" r="5" fill="#d4af37" className="shadow-lg" />
+                          </motion.svg>
                         </motion.div>
                       )}
                     </AnimatePresence>
 
                     <button 
                       onClick={handleOpen}
-                      className="group relative w-28 h-28 md:w-44 md:h-44 rounded-full flex items-center justify-center cursor-pointer transition-transform hover:scale-110 active:scale-90"
+                      className="group relative w-28 h-28 md:w-44 md:h-44 rounded-full flex items-center justify-center cursor-pointer transition-all hover:scale-110 active:scale-95 shadow-[0_10px_30px_rgba(0,0,0,0.3)]"
                     >
-                      <div className="absolute inset-0 rounded-full border-2 border-[#d4af37] shadow-[0_0_20px_rgba(212,175,55,0.3)] bg-[#800000]/40 backdrop-blur-md" />
+                      {/* Semi-Transparent Red Body - Allows Heart to show through */}
+                      <div className="absolute inset-0 rounded-full border-2 border-[#d4af37] bg-[#800000]/50 backdrop-blur-md shadow-[0_0_20px_rgba(212,175,55,0.3)]" />
+                      
                       <div className="relative z-10 flex flex-col items-center">
-                        <span className="font-wedding text-2xl md:text-5xl text-[#d4af37] drop-shadow-md">R&D</span>
+                        <span className="font-wedding text-3xl md:text-6xl text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.5)] font-bold tracking-wider">R&D</span>
                       </div>
+
+                      {/* Pulse effect */}
                       <motion.div 
-                        animate={{ scale: [1, 1.2, 1], opacity: [0.3, 0, 0.3] }}
-                        transition={{ duration: 3, repeat: Infinity }}
-                        className="absolute inset-0 border border-[#d4af37]/50 rounded-full"
+                        animate={{ scale: [1, 1.15, 1], opacity: [0.5, 0, 0.5] }}
+                        transition={{ duration: 2.5, repeat: Infinity }}
+                        className="absolute inset-[-4px] border-2 border-[#d4af37]/30 rounded-full"
                       />
                     </button>
                     
                     <motion.span 
-                      animate={isLaceOpen ? { opacity: 0 } : { opacity: [0.4, 1, 0.4] }}
+                      animate={isLaceOpen ? { opacity: 0 } : { opacity: [0.6, 1, 0.6] }}
                       transition={{ duration: 2, repeat: Infinity }}
-                      className="absolute top-full mt-4 md:mt-6 text-[#d4af37] text-[9px] md:text-xs tracking-[0.4em] uppercase font-light drop-shadow-sm whitespace-nowrap"
+                      className="absolute top-full mt-4 md:mt-6 text-[#d4af37] text-[10px] md:text-sm tracking-[0.4em] uppercase font-bold drop-shadow-md whitespace-nowrap bg-black/20 px-4 py-1 rounded-full backdrop-blur-sm border border-white/10"
                     >
                       {isLaceOpen ? 'Untying...' : 'Tap to Untie'}
                     </motion.span>
