@@ -25,9 +25,9 @@ const CoupleIntro = () => {
       >
         <div className="mb-12 md:mb-20 relative">
           <div className="relative z-10 inline-block">
-            <span className="font-wedding text-4xl md:text-8xl text-slate-900 mix-blend-multiply opacity-20 absolute -top-6 md:-top-12 left-1/2 -translate-x-1/2 whitespace-nowrap">
+            {/* <span className="font-wedding text-4xl md:text-8xl text-slate-900 mix-blend-multiply opacity-20 absolute -top-6 md:-top-12 left-1/2 -translate-x-1/2 whitespace-nowrap">
               Forever & Always
-            </span>
+            </span> */}
             <h2 className="font-wedding text-4xl md:text-8xl text-slate-900 relative tracking-tight">
               <motion.span
                 initial={{ opacity: 0, x: -30 }}

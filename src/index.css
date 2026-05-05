@@ -38,9 +38,9 @@ body {
 .bg-couple-gradient {
   background: linear-gradient(
     135deg,
-    #f5f3ff 0%,
-    #fdf2f8 50%,
-    #f0fdf4 100%
+    #fdf2f8 0%,    /* Pink */
+    #f5f3ff 50%,   /* Purple */
+    #f0fdf4 100%   /* Green */
   );
 }
 
