@@ -6,7 +6,8 @@ export const weddingData = {
   venue: {
     name: "The Royal Orchid Palace",
     address: "Ambience Island, DLF Phase 3, Gurgaon, Haryana 122002",
-    mapLink: "https://goo.gl/maps/placeholder"
+    mapLink: "https://goo.gl/maps/placeholder",
+    mapEmbedLink: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3506.223391312166!2d77.08507631508053!3d28.502903982468314!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d19472658a081%3A0xc07a8b6f3c5b8a0!2sAmbience%20Mall!5e0!3m2!1sen!2sin!4v1650000000000!5m2!1sen!2sin"
   },
   events: [
     {
