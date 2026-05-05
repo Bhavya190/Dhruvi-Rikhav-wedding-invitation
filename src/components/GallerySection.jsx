@@ -10,11 +10,11 @@ const GallerySection = () => {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="font-wedding text-3xl md:text-5xl text-slate-800 mb-4"
+          className="font-wedding text-3xl md:text-5xl text-heading-navy mb-4"
         >
           Cherished Moments
         </motion.h2>
-        <p className="text-slate-500 italic max-w-lg mx-auto">
+        <p className="text-subtext-blue italic max-w-lg mx-auto">
           A glimpse into our beautiful journey together through these frozen moments of time.
         </p>
       </div>

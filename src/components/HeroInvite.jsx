@@ -158,9 +158,9 @@ const HeroInvite = ({ onOpen }) => {
             className="flex flex-col items-center"
           >
             <h2 className="flex flex-col items-center justify-center mb-2 md:mb-4">
-              <span className="font-wedding text-6xl md:text-9xl text-[#2c3e50] drop-shadow-sm tracking-tight leading-none">{weddingData.bride}</span>
+              <span className="font-wedding text-6xl md:text-9xl text-heading-navy drop-shadow-sm tracking-tight leading-none">{weddingData.bride}</span>
               <span className="font-wedding text-4xl md:text-6xl text-[#d4af37] py-2">Weds</span>
-              <span className="font-wedding text-6xl md:text-9xl text-[#2c3e50] drop-shadow-sm tracking-tight leading-none">{weddingData.groom}</span>
+              <span className="font-wedding text-6xl md:text-9xl text-heading-navy drop-shadow-sm tracking-tight leading-none">{weddingData.groom}</span>
             </h2>
             
             <motion.div 
@@ -174,7 +174,7 @@ const HeroInvite = ({ onOpen }) => {
               initial={{ opacity: 0 }}
               animate={isOpen ? { opacity: 1 } : {}}
               transition={{ delay: 1.8, duration: 1 }}
-              className="text-slate-500 uppercase tracking-[0.2em] text-[8px] md:text-xs font-medium max-w-xs md:max-w-md mx-auto leading-relaxed px-4"
+              className="text-subtext-blue uppercase tracking-[0.2em] text-[8px] md:text-xs font-medium max-w-xs md:max-w-md mx-auto leading-relaxed px-4"
             >
               Together with their families, invite you to celebrate their wedding
             </motion.p>

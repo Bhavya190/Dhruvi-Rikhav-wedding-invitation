@@ -28,7 +28,7 @@ const CoupleIntro = () => {
             {/* <span className="font-wedding text-4xl md:text-8xl text-slate-900 mix-blend-multiply opacity-20 absolute -top-6 md:-top-12 left-1/2 -translate-x-1/2 whitespace-nowrap">
               Forever & Always
             </span> */}
-            <h2 className="font-wedding text-4xl md:text-8xl text-slate-900 relative tracking-tight">
+            <h2 className="font-wedding text-4xl md:text-8xl text-heading-navy relative tracking-tight">
               <motion.span
                 initial={{ opacity: 0, x: -30 }}
                 whileInView={{ opacity: 1, x: 0 }}
@@ -61,7 +61,7 @@ const CoupleIntro = () => {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.8 }}
-          className="text-base md:text-3xl text-slate-700 italic font-light leading-relaxed max-w-2xl mx-auto px-4"
+          className="text-base md:text-3xl text-subtext-blue italic font-light leading-relaxed max-w-2xl mx-auto px-4"
         >
           "Two souls with but a single thought, two hearts that beat as one. 
           Join us as we embark on our greatest adventure yet."

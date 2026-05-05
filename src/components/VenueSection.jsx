@@ -18,13 +18,13 @@ const VenueSection = () => {
           
           <MapPin size={32} className="text-pink-300 mx-auto mb-6 md:mb-8 md:scale-150" />
           
-          <h2 className="font-wedding text-2xl md:text-5xl text-slate-800 mb-4 md:mb-6 leading-tight">
+          <h2 className="font-wedding text-2xl md:text-5xl text-heading-navy mb-4 md:mb-6 leading-tight">
             The Grand Venue
           </h2>
           
           <div className="mb-8 md:mb-12">
-            <h4 className="text-lg md:text-2xl font-semibold text-slate-700 mb-1 md:mb-2">{weddingData.venue.name}</h4>
-            <p className="text-slate-500 text-sm md:text-xl max-w-sm mx-auto leading-relaxed italic font-light px-2">
+            <h4 className="text-lg md:text-2xl font-semibold text-heading-navy mb-1 md:mb-2">{weddingData.venue.name}</h4>
+            <p className="text-subtext-blue text-sm md:text-xl max-w-sm mx-auto leading-relaxed italic font-light px-2">
               {weddingData.venue.address}
             </p>
           </div>

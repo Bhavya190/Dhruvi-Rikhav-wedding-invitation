@@ -15,7 +15,7 @@ const TimeUnit = ({ value, label }) => (
             animate={{ y: 0, opacity: 1 }}
             exit={{ y: -20, opacity: 0 }}
             transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-            className="block text-2xl md:text-7xl font-wedding text-slate-900 drop-shadow-sm"
+            className="block text-2xl md:text-7xl font-wedding text-heading-navy drop-shadow-sm"
           >
             {String(value).padStart(2, '0')}
           </motion.span>
@@ -88,8 +88,8 @@ const CountdownSection = () => {
           {/* <span className="font-wedding text-4xl md:text-8xl text-slate-900 mix-blend-multiply opacity-10 absolute -top-8 md:-top-16 left-1/2 -translate-x-1/2 whitespace-nowrap select-none">
             Counting the Days
           </span> */}
-          <h3 className="font-wedding text-3xl md:text-6xl text-slate-900 relative">The Countdown Begins</h3>
-          <p className="text-slate-600 text-xs md:text-lg mt-3 md:mt-6 italic font-light">Until we start our forever together</p>
+          <h3 className="font-wedding text-3xl md:text-6xl text-heading-navy relative">The Countdown Begins</h3>
+          <p className="text-subtext-blue text-xs md:text-lg mt-3 md:mt-6 italic font-light">Until we start our forever together</p>
         </div>
         
         <div className="grid grid-cols-4 gap-2 md:gap-12 px-1 md:px-0">

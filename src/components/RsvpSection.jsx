@@ -19,11 +19,11 @@ const RsvpSection = () => {
       >
         <Heart size={32} className="text-pink-300 mx-auto mb-6 md:mb-10 fill-pink-50 md:scale-150" />
         
-        <h2 className="font-wedding text-3xl md:text-6xl text-slate-800 mb-6 md:mb-12 leading-tight">
+        <h2 className="font-wedding text-3xl md:text-6xl text-heading-navy mb-6 md:mb-12 leading-tight">
           Can't wait to see you there!
         </h2>
         
-        <p className="text-slate-600 mb-10 md:mb-16 text-sm md:text-2xl italic font-light px-4 leading-relaxed">
+        <p className="text-subtext-blue mb-10 md:mb-16 text-sm md:text-2xl italic font-light px-4 leading-relaxed">
           Your presence will make our celebration truly special. Please let us know if you can join us.
         </p>
 
@@ -48,7 +48,7 @@ const RsvpSection = () => {
         </div>
         
         <div className="mt-24 md:mt-48 opacity-30">
-          <p className="text-[8px] md:text-[10px] uppercase tracking-[0.4em] text-slate-500">
+          <p className="text-[8px] md:text-[10px] uppercase tracking-[0.4em] text-subtext-blue">
             Made with Love for Dhruvi & Rikhav
           </p>
         </div>

@@ -12,7 +12,7 @@ const StoryTimeline = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="font-wedding text-3xl md:text-6xl text-slate-800 mb-4"
+            className="font-wedding text-3xl md:text-6xl text-heading-navy mb-4"
           >
             Our Love Story
           </motion.h2>
@@ -38,8 +38,8 @@ const StoryTimeline = () => {
                 {/* Content */}
                 <div className={`flex-1 pt-1 md:pt-0 ${index % 2 === 0 ? 'md:text-right' : 'md:text-left'} text-left pl-12 md:pl-0`}>
                   <span className="text-pink-400 font-wedding text-lg md:text-3xl mb-1 md:mb-3 block">{item.year}</span>
-                  <h4 className="text-base md:text-2xl text-slate-800 font-semibold mb-1 md:mb-2">{item.event}</h4>
-                  <p className="text-slate-500 text-xs md:text-lg italic leading-relaxed font-light">{item.description}</p>
+                  <h4 className="text-base md:text-2xl text-heading-navy font-semibold mb-1 md:mb-2">{item.event}</h4>
+                  <p className="text-subtext-blue text-xs md:text-lg italic leading-relaxed font-light">{item.description}</p>
                 </div>
 
                 {/* Center Icon */}
