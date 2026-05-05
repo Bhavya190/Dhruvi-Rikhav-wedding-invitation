@@ -2,6 +2,7 @@ import React, { useRef, useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { Calendar, Clock, MapPin } from 'lucide-react';
 import { weddingData } from '../data/weddingData';
+import floralDecoration from '../assets/floral-decoration.png';
 
 const ScratchCard = ({ event }) => {
   const canvasRef = useRef(null);
@@ -18,17 +19,17 @@ const ScratchCard = ({ event }) => {
       canvas.height = rect.height;
       
       const gradient = ctx.createLinearGradient(0, 0, canvas.width, canvas.height);
-      gradient.addColorStop(0, '#fdf2f8');
-      gradient.addColorStop(0.5, '#f5f3ff');
-      gradient.addColorStop(1, '#fee2e2');
+      gradient.addColorStop(0, '#cbd5e1'); // Silver
+      gradient.addColorStop(0.5, '#f1f5f9'); // Highlight
+      gradient.addColorStop(1, '#94a3b8'); // Shadow
       
       ctx.fillStyle = gradient;
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-      ctx.fillStyle = '#94a3b8';
-      ctx.font = 'italic 12px serif';
+      ctx.fillStyle = '#475569';
+      ctx.font = 'bold 14px serif';
       ctx.textAlign = 'center';
-      ctx.fillText('Scratch Here', canvas.width / 2, canvas.height / 2 + 5);
+      ctx.fillText('SCRATCH HERE', canvas.width / 2, canvas.height / 2 + 5);
     };
 
     resizeCanvas();
@@ -108,7 +109,7 @@ const ScratchCard = ({ event }) => {
   }, [isScratchedEnough]);
 
   return (
-    <div className="relative w-full h-[190px] md:h-[260px] rounded-2xl md:rounded-3xl overflow-hidden shadow-md md:shadow-lg glass-card group">
+    <div className="relative w-full h-[190px] md:h-[260px] rounded-2xl md:rounded-3xl overflow-hidden shadow-2xl shadow-slate-300/50 border border-white/80 glass-card group hover:border-pink-300 transition-all duration-500 hover:-translate-y-1">
       {/* Event Details (Hidden underneath) */}
       <div className="absolute inset-0 p-3 md:p-6 flex flex-col justify-start gap-y-4 md:justify-between bg-white/60">
         <div>
@@ -145,31 +146,42 @@ const ScratchCard = ({ event }) => {
 
 const EventsScratchCards = () => {
   return (
-    <section className="py-8 md:py-16 px-3 md:px-6 max-w-7xl mx-auto">
-      <div className="text-center mb-6 md:mb-12">
-        <motion.h2 
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="font-wedding text-3xl md:text-6xl text-heading-navy mb-4"
-        >
-          The Ceremonies
-        </motion.h2>
-        <p className="text-subtext-blue text-[10px] md:text-lg italic font-light">Gently scratch each card to reveal the details</p>
+    <section className="relative py-8 md:py-16 px-3 md:px-6 text-center overflow-hidden bg-couple-gradient">
+      {/* Floral Decorations Overlay */}
+      <div className="absolute inset-0 pointer-events-none opacity-40 mix-blend-multiply select-none">
+        <img 
+          src={floralDecoration} 
+          alt="" 
+          className="w-full h-full object-cover opacity-90 scale-110 brightness-105"
+        />
       </div>
 
-      <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-10">
-        {weddingData.events.map((event) => (
-          <motion.div
-            key={event.id}
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
+      <div className="max-w-7xl mx-auto relative z-10">
+        <div className="text-center mb-6 md:mb-12">
+          <motion.h2 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: event.id * 0.05 }}
+            className="font-wedding text-3xl md:text-6xl text-heading-navy mb-4"
           >
-            <ScratchCard event={event} />
-          </motion.div>
-        ))}
+            The Ceremonies
+          </motion.h2>
+          <p className="text-subtext-blue text-[10px] md:text-lg italic font-light">Gently scratch each card to reveal the details</p>
+        </div>
+
+        <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-10">
+          {weddingData.events.map((event) => (
+            <motion.div
+              key={event.id}
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: event.id * 0.05 }}
+            >
+              <ScratchCard event={event} />
+            </motion.div>
+          ))}
+        </div>
       </div>
     </section>
   );
