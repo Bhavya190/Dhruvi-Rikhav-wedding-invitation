@@ -66,11 +66,11 @@ export const weddingData = {
     { year: "2027", event: "The Big Day", description: "Starting our forever together." }
   ],
   gallery: [
-    { id: 1, url: "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?q=80&w=2069&auto=format&fit=crop", caption: "Moments" },
-    { id: 2, url: "https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=2070&auto=format&fit=crop", caption: "Love" },
-    { id: 3, url: "https://images.unsplash.com/photo-1583939003579-730e3918a45a?q=80&w=1974&auto=format&fit=crop", caption: "Together" },
-    { id: 4, url: "https://images.unsplash.com/photo-1519225495810-751253df9f2e?q=80&w=2070&auto=format&fit=crop", caption: "Joy" },
-    { id: 5, url: "https://images.unsplash.com/photo-1532712938310-34cb3982ef74?q=80&w=2070&auto=format&fit=crop", caption: "Forever" },
-    { id: 6, url: "https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?q=80&w=2070&auto=format&fit=crop", caption: "Smile" }
+    { id: 1, url: "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?q=80&w=2069&auto=format&fit=crop", caption: "Moments", date: "May 2024" },
+    { id: 2, url: "https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=2070&auto=format&fit=crop", caption: "Love", date: "Aug 2024" },
+    { id: 3, url: "https://images.unsplash.com/photo-1583939003579-730e3918a45a?q=80&w=1974&auto=format&fit=crop", caption: "Together", date: "Oct 2024" },
+    { id: 4, url: "https://images.unsplash.com/photo-1519225495810-751253df9f2e?q=80&w=2070&auto=format&fit=crop", caption: "Joy", date: "Nov 2024" },
+    { id: 5, url: "https://images.unsplash.com/photo-1532712938310-34cb3982ef74?q=80&w=2070&auto=format&fit=crop", caption: "Forever", date: "Dec 2024" },
+    { id: 6, url: "https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?q=80&w=2070&auto=format&fit=crop", caption: "Smile", date: "Jan 2025" }
   ]
 };

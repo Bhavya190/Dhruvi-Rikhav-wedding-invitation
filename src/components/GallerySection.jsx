@@ -117,6 +117,13 @@ const GallerySection = ({ images = weddingData.gallery }) => {
           {/* Controls below screen */}
           <div className={styles.controlsRow}>
             <div className={styles.speakerGrille}></div>
+            
+            {/* Title and Date Display */}
+            <div className={styles.tvLabel}>
+              <span className={styles.tvLabelTitle}>{currentImage.caption}</span>
+              <span className={styles.tvLabelDate}>{currentImage.date}</span>
+            </div>
+
             <div className={styles.knobs}>
               <div className={styles.knob}></div>
               <div className={styles.knob}></div>
