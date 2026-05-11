@@ -14,6 +14,15 @@ function App() {
   const [isHeroOpen, setIsHeroOpen] = useState(false);
 
   useEffect(() => {
+    // Force scroll to top on page load/refresh
+    window.scrollTo(0, 0);
+    // Disable browser's automatic scroll restoration
+    if ('scrollRestoration' in history) {
+      history.scrollRestoration = 'manual';
+    }
+  }, []);
+
+  useEffect(() => {
     if (!isHeroOpen) {
       document.body.classList.add('no-scroll');
     } else {
