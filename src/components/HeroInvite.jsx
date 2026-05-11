@@ -178,8 +178,23 @@ const HeroInvite = ({ onOpen }) => {
             >
               Together with their families, invite you to celebrate their wedding
             </motion.p>
+
           </motion.div>
         </div>
+        {/* Scroll Down Indicator */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={isOpen ? { opacity: 1 } : {}}
+          transition={{ delay: 2.5, duration: 1 }}
+          className="absolute bottom-6 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center justify-center text-[#ff0f37ff]"
+        >
+          <span className="uppercase tracking-widest text-[9px] md:text-xs font-semibold mb-1 opacity-90">Scroll to see more</span>
+          <div className="animate-bounce mt-1">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+              <path d="m6 9 6 6 6-6"/>
+            </svg>
+          </div>
+        </motion.div>
       </section>
 
       {/* Invitation Cover Overlay */}
@@ -246,6 +261,9 @@ const HeroInvite = ({ onOpen }) => {
                         style={{ maskImage: 'radial-gradient(circle, black 65%, transparent 100%)', WebkitMaskImage: 'radial-gradient(circle, black 65%, transparent 100%)' }}
                       />
                     </button>
+                    <p className="mt-2 text-red-600 text-xl md:text-2xl animate-pulse tracking-wide" style={{ fontFamily: "'Great Vibes', cursive", textShadow: '0 1px 2px rgba(255,255,255,0.8)' }}>
+                      Click to open
+                    </p>
                     
                   </motion.div>
                 </div>

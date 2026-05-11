@@ -8,6 +8,7 @@ import EventsScratchCards from './components/EventsScratchCards';
 import GallerySection from './components/GallerySection';
 import VenueSection from './components/VenueSection';
 import RsvpSection from './components/RsvpSection';
+// import ScrollNavigation from './components/ScrollNavigation';
 
 function App() {
   const [isHeroOpen, setIsHeroOpen] = useState(false);
@@ -47,6 +48,8 @@ function App() {
         
         <RsvpSection />
       </main>
+      
+      {/* <ScrollNavigation isHeroOpen={isHeroOpen} /> */}
     </div>
   );
 }
