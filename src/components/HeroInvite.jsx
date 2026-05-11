@@ -43,13 +43,14 @@ const HeroInvite = ({ onOpen }) => {
   return (
     <>
       {/* Inside Invitation Content */}
-      <section className="relative h-[100svh] flex flex-col items-center justify-between text-center px-4 md:px-6 overflow-hidden bg-gradient-to-b from-[#fdf2f8] to-[#f5f3ff]">
+      <section className="relative h-[100svh] flex flex-col items-center justify-between text-center px-4 md:px-6 overflow-hidden bg-gradient-to-b from-[#fdfff9] via-[#fcedf1] to-[#efe8f7]">
         {/* Boho Watercolor Canopy Banner - Advanced Masked Transition */}
-        <div className="absolute -top-1 left-0 w-full h-[36vh] md:h-[46vh] z-0 overflow-hidden"
-             style={{ maskImage: 'linear-gradient(to bottom, black 80%, transparent 100%)', WebkitMaskImage: 'linear-gradient(to bottom, black 80%, transparent 100%)' }}>
+        <div className="absolute -top-1 left-0 w-full h-[36vh] md:h-[46vh] z-0 overflow-hidden pointer-events-none"
+             style={{ maskImage: 'linear-gradient(to bottom, black 10%, transparent 85%)', WebkitMaskImage: 'linear-gradient(to bottom, black 10%, transparent 85%)' }}>
           <motion.img 
             initial={{ scale: 1.2, opacity: 0, y: -20 }}
-            animate={isOpen ? { scale: 1.12, opacity: 1, y: -30 } : {}}
+            whileInView={isOpen ? { scale: 1.12, opacity: 1, y: -30 } : {}}
+            viewport={{ once: false, margin: "-100px" }}
             transition={{ duration: 2, ease: "easeOut" }}
             src="/boho_wedding_canopy_watercolor_1777878107620.png"
             alt="Boho Canopy"
@@ -63,7 +64,8 @@ const HeroInvite = ({ onOpen }) => {
              style={{ maskImage: 'linear-gradient(to top, black 80%, transparent 100%)', WebkitMaskImage: 'linear-gradient(to top, black 80%, transparent 100%)' }}>
           <motion.img 
             initial={{ y: 50, opacity: 0, scale: 1.2 }}
-            animate={isOpen ? { y: 0, opacity: 1, scale: 1.12 } : {}}
+            whileInView={isOpen ? { y: 0, opacity: 1, scale: 1.12 } : {}}
+            viewport={{ once: false, margin: "-100px" }}
             transition={{ delay: 0.8, duration: 2, ease: "easeOut" }}
             src="/indian_couple_back_view_boho_1777881225202.png"
             alt="Bride and Groom"
@@ -153,28 +155,31 @@ const HeroInvite = ({ onOpen }) => {
         <div className="relative z-10 w-full max-w-5xl mx-auto flex-1 flex flex-col justify-start pt-[26vh] md:pt-[34vh] transition-all duration-700">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
-            animate={isOpen ? { opacity: 1, y: 0 } : {}}
+            whileInView={isOpen ? { opacity: 1, y: 0 } : {}}
+            viewport={{ once: false }}
             transition={{ delay: 0.6, duration: 1.2 }}
             className="flex flex-col items-center"
           >
-            <h2 className="flex flex-col items-center justify-center mb-2 md:mb-4">
-              <span className="font-wedding text-6xl md:text-9xl text-heading-navy drop-shadow-sm tracking-tight leading-none">{weddingData.bride}</span>
-              <span className="font-wedding text-4xl md:text-6xl text-[#d4af37] py-2">Weds</span>
-              <span className="font-wedding text-6xl md:text-9xl text-heading-navy drop-shadow-sm tracking-tight leading-none">{weddingData.groom}</span>
+            <h2 className="flex flex-col items-center justify-center mb-1 md:mb-4">
+              <span className="font-wedding text-[clamp(3.5rem,min(8vh,15vw),8rem)] text-heading-navy drop-shadow-sm tracking-tight leading-none">{weddingData.bride}</span>
+              <span className="font-wedding text-[clamp(2rem,min(4.5vh,8vw),4rem)] text-[#d4af37] py-1">Weds</span>
+              <span className="font-wedding text-[clamp(3.5rem,min(8vh,15vw),8rem)] text-heading-navy drop-shadow-sm tracking-tight leading-none">{weddingData.groom}</span>
             </h2>
             
             <motion.div 
               initial={{ scaleX: 0 }}
-              animate={isOpen ? { scaleX: 1 } : { scaleX: 0 }}
+              whileInView={isOpen ? { scaleX: 1 } : { scaleX: 0 }}
+              viewport={{ once: false }}
               transition={{ delay: 1.2, duration: 1.5 }}
-              className="w-16 md:w-40 h-[1px] bg-gradient-to-r from-transparent via-[#d4af37] to-transparent mb-3 md:mb-5"
+              className="w-16 md:w-40 h-[1px] bg-gradient-to-r from-transparent via-[#d4af37] to-transparent mb-2 md:mb-5"
             />
 
             <motion.p
               initial={{ opacity: 0 }}
-              animate={isOpen ? { opacity: 1 } : {}}
+              whileInView={isOpen ? { opacity: 1 } : {}}
+              viewport={{ once: false }}
               transition={{ delay: 1.8, duration: 1 }}
-              className="text-subtext-blue uppercase tracking-[0.2em] text-[8px] md:text-xs font-medium max-w-xs md:max-w-md mx-auto leading-relaxed px-4"
+              className="text-subtext-blue uppercase tracking-[0.2em] text-[clamp(8px,min(1.2vh,2.5vw),12px)] font-medium max-w-[85vw] md:max-w-md mx-auto leading-relaxed px-2"
             >
               Together with their families, invite you to celebrate their wedding
             </motion.p>
@@ -184,7 +189,8 @@ const HeroInvite = ({ onOpen }) => {
         {/* Scroll Down Indicator */}
         <motion.div
           initial={{ opacity: 0 }}
-          animate={isOpen ? { opacity: 1 } : {}}
+          whileInView={isOpen ? { opacity: 1 } : {}}
+          viewport={{ once: false }}
           transition={{ delay: 2.5, duration: 1 }}
           className="absolute bottom-6 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center justify-center text-[#ff0f37ff]"
         >
