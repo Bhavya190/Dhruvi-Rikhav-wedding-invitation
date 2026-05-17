@@ -7,7 +7,7 @@ import EventsScratchCards from './components/EventsScratchCards';
 // import StoryTimeline from './components/StoryTimeline';
 import GallerySection from './components/GallerySection';
 import VenueSection from './components/VenueSection';
-import RsvpSection from './components/RsvpSection';
+// import RsvpSection from './components/RsvpSection';
 // import ScrollNavigation from './components/ScrollNavigation';
 
 function App() {
@@ -55,7 +55,7 @@ function App() {
         
         <VenueSection />
         
-        <RsvpSection />
+        {/* <RsvpSection /> */}
       </main>
       
       {/* <ScrollNavigation isHeroOpen={isHeroOpen} /> */}
