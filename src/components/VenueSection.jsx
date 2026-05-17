@@ -2,11 +2,20 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Map as MapIcon } from 'lucide-react';
 import { weddingData } from '../data/weddingData';
+import leftDoorBg from '../assets/left-door-bg.png';
 
 const VenueSection = () => {
   return (
-    <section className="py-12 md:py-24 px-4 md:px-6 bg-white/30 backdrop-blur-sm">
-      <div className="max-w-5xl mx-auto text-center">
+    <section className="py-12 md:py-24 px-4 md:px-6 relative overflow-hidden bg-white/10">
+      <div className="absolute inset-0 z-0 pointer-events-none">
+        <img 
+          src={leftDoorBg} 
+          alt="" 
+          className="w-full h-full object-cover opacity-60 scale-100"
+        />
+        <div className="absolute inset-0 bg-white/20 backdrop-blur-[1px]" />
+      </div>
+      <div className="max-w-5xl mx-auto text-center relative z-10">
         <motion.h2 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -57,6 +66,14 @@ const VenueSection = () => {
           </motion.a>
         </motion.div>
       </div>
+
+      <div className="mt-16 md:mt-32 text-center">
+          <div className="inline-block px-4 py-3 rounded-full bg-white/40 backdrop-blur-md border border-white/60 shadow-sm">
+            <p className="text-[7px] md:text-[10px] uppercase tracking-[0.2em] md:tracking-[0.4em] text-heading-navy font-medium">
+              Made with Love for Dhruvi & Rikhav
+            </p>
+          </div>
+        </div>
     </section>
   );
 };
