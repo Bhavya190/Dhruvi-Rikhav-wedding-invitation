@@ -3,10 +3,12 @@ import HeroInvite from './components/HeroInvite';
 import FloralBackground from './components/FloralBackground';
 import CoupleIntro from './components/CoupleIntro';
 import CountdownSection from './components/CountdownSection';
-import EventsScratchCards from './components/EventsScratchCards';
+// import EventsScratchCards from './components/EventsScratchCards';
+import RopeKnotOpeningCard from './components/RopeKnotOpeningCard';
 // import StoryTimeline from './components/StoryTimeline';
 import GallerySection from './components/GallerySection';
 import VenueSection from './components/VenueSection';
+// import CeremonyCardReveal from './components/CeremonyCardReveal';
 // import RsvpSection from './components/RsvpSection';
 // import ScrollNavigation from './components/ScrollNavigation';
 
@@ -44,7 +46,13 @@ function App() {
         <CountdownSection />
         <div className="max-w-6xl mx-auto px-6 h-[1px] bg-gradient-to-r from-transparent via-slate-200 to-transparent" />
         
-        <EventsScratchCards />
+        {/* <EventsScratchCards /> */}
+        <div className="max-w-6xl mx-auto px-6 h-[1px] bg-gradient-to-r from-transparent via-slate-200 to-transparent" />
+        
+        <RopeKnotOpeningCard />
+        <div className="max-w-6xl mx-auto px-6 h-[1px] bg-gradient-to-r from-transparent via-slate-200 to-transparent" />
+        
+        {/* <CeremonyCardReveal /> */}
         <div className="max-w-6xl mx-auto px-6 h-[1px] bg-gradient-to-r from-transparent via-slate-200 to-transparent" />
         
         {/* <StoryTimeline />
