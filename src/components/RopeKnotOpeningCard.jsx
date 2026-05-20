@@ -171,7 +171,7 @@ const SingleEventCard = ({ event }) => {
   };
 
   return (
-    <div className="relative w-full h-[255px] sm:h-[300px] md:h-[380px] lg:h-[400px] rounded-[1.5rem] sm:rounded-[2rem] md:rounded-[2.5rem] perspective-2000 preserve-3d shadow-lg shadow-slate-900/10">
+    <div className="relative w-full h-[220px] sm:h-[255px] md:h-[330px] lg:h-[350px] rounded-[1.5rem] sm:rounded-[2rem] md:rounded-[2.5rem] perspective-2000 preserve-3d shadow-lg shadow-slate-900/10">
       
       {/* 1. INTERIOR: Event Details (Rendered Underneath) */}
       <div className="absolute inset-0 w-full h-full rounded-[1.5rem] sm:rounded-[2rem] md:rounded-[2.5rem] bg-gradient-to-br from-[#fffdfa] to-[#fbf7ee] p-2.5 sm:p-4 md:p-6 lg:p-8 flex flex-col justify-between items-center text-center overflow-hidden border border-amber-200/50 shadow-inner">
