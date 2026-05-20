@@ -4,131 +4,152 @@ import { Calendar, Clock, MapPin } from 'lucide-react';
 import { weddingData } from '../data/weddingData';
 
 // Custom highly realistic braided golden-red traditional wedding rope bow knot (Responsive)
-const KnotSVG = () => (
+const KnotSVG = ({ isOpen }) => (
   <svg 
     viewBox="0 0 100 100" 
     className="w-full h-full drop-shadow-[0_8px_16px_rgba(0,0,0,0.5)] select-none pointer-events-none"
   >
-    {/* Left Outer Loop (Braided Rope) */}
-    <path 
-      d="M 50 50 C 25 20, 10 30, 10 50 C 10 70, 25 80, 50 50" 
-      fill="none" 
-      stroke="#d4af37" 
-      strokeWidth="6.5" 
-      strokeLinecap="round"
-    />
-    <path 
-      d="M 50 50 C 25 20, 10 30, 10 50 C 10 70, 25 80, 50 50" 
-      fill="none" 
-      stroke="#800020" 
-      strokeWidth="4" 
-      strokeLinecap="round"
-      strokeDasharray="4 4"
-    />
-    <path 
-      d="M 50 50 C 25 20, 10 30, 10 50 C 10 70, 25 80, 50 50" 
-      fill="none" 
-      stroke="#fef3c7" 
-      strokeWidth="1.2" 
-      strokeLinecap="round"
-      strokeOpacity="0.7"
-    />
+    {/* Left Part (Loop and Tail) - slides left, rotates, and fades out */}
+    <motion.g
+      animate={isOpen ? { x: -45, y: 5, rotate: -25, opacity: 0 } : { x: 0, y: 0, rotate: 0, opacity: 1 }}
+      transition={{ duration: 1.1, ease: [0.16, 1, 0.3, 1] }}
+      style={{ transformOrigin: "50px 50px" }}
+    >
+      {/* Left Outer Loop (Braided Rope) */}
+      <path 
+        d="M 50 50 C 25 20, 10 30, 10 50 C 10 70, 25 80, 50 50" 
+        fill="none" 
+        stroke="#d4af37" 
+        strokeWidth="6.5" 
+        strokeLinecap="round"
+      />
+      <path 
+        d="M 50 50 C 25 20, 10 30, 10 50 C 10 70, 25 80, 50 50" 
+        fill="none" 
+        stroke="#800020" 
+        strokeWidth="4" 
+        strokeLinecap="round"
+        strokeDasharray="4 4"
+      />
+      <path 
+        d="M 50 50 C 25 20, 10 30, 10 50 C 10 70, 25 80, 50 50" 
+        fill="none" 
+        stroke="#fef3c7" 
+        strokeWidth="1.2" 
+        strokeLinecap="round"
+        strokeOpacity="0.7"
+      />
 
-    {/* Right Outer Loop (Braided Rope) */}
-    <path 
-      d="M 50 50 C 75 20, 90 30, 90 50 C 90 70, 75 80, 50 50" 
-      fill="none" 
-      stroke="#d4af37" 
-      strokeWidth="6.5" 
-      strokeLinecap="round"
-    />
-    <path 
-      d="M 50 50 C 75 20, 90 30, 90 50 C 90 70, 75 80, 50 50" 
-      fill="none" 
-      stroke="#800020" 
-      strokeWidth="4" 
-      strokeLinecap="round"
-      strokeDasharray="4 4"
-    />
-    <path 
-      d="M 50 50 C 75 20, 90 30, 90 50 C 90 70, 75 80, 50 50" 
-      fill="none" 
-      stroke="#fef3c7" 
-      strokeWidth="1.2" 
-      strokeLinecap="round"
-      strokeOpacity="0.7"
-    />
+      {/* Left Tail (Braided Rope) */}
+      <path 
+        d="M 46 53 C 38 67, 32 77, 24 91" 
+        fill="none" 
+        stroke="#d4af37" 
+        strokeWidth="5.5" 
+        strokeLinecap="round"
+      />
+      <path 
+        d="M 46 53 C 38 67, 32 77, 24 91" 
+        fill="none" 
+        stroke="#800020" 
+        strokeWidth="3.2" 
+        strokeLinecap="round"
+        strokeDasharray="3 3"
+      />
+      <path 
+        d="M 46 53 C 38 67, 32 77, 24 91" 
+        fill="none" 
+        stroke="#fef3c7" 
+        strokeWidth="1" 
+        strokeLinecap="round"
+        strokeOpacity="0.7"
+      />
+    </motion.g>
 
-    {/* Left Tail (Braided Rope) */}
-    <path 
-      d="M 46 53 C 38 67, 32 77, 24 91" 
-      fill="none" 
-      stroke="#d4af37" 
-      strokeWidth="5.5" 
-      strokeLinecap="round"
-    />
-    <path 
-      d="M 46 53 C 38 67, 32 77, 24 91" 
-      fill="none" 
-      stroke="#800020" 
-      strokeWidth="3.2" 
-      strokeLinecap="round"
-      strokeDasharray="3 3"
-    />
-    <path 
-      d="M 46 53 C 38 67, 32 77, 24 91" 
-      fill="none" 
-      stroke="#fef3c7" 
-      strokeWidth="1" 
-      strokeLinecap="round"
-      strokeOpacity="0.7"
-    />
+    {/* Right Part (Loop and Tail) - slides right, rotates, and fades out */}
+    <motion.g
+      animate={isOpen ? { x: 45, y: 5, rotate: 25, opacity: 0 } : { x: 0, y: 0, rotate: 0, opacity: 1 }}
+      transition={{ duration: 1.1, ease: [0.16, 1, 0.3, 1] }}
+      style={{ transformOrigin: "50px 50px" }}
+    >
+      {/* Right Outer Loop (Braided Rope) */}
+      <path 
+        d="M 50 50 C 75 20, 90 30, 90 50 C 90 70, 75 80, 50 50" 
+        fill="none" 
+        stroke="#d4af37" 
+        strokeWidth="6.5" 
+        strokeLinecap="round"
+      />
+      <path 
+        d="M 50 50 C 75 20, 90 30, 90 50 C 90 70, 75 80, 50 50" 
+        fill="none" 
+        stroke="#800020" 
+        strokeWidth="4" 
+        strokeLinecap="round"
+        strokeDasharray="4 4"
+      />
+      <path 
+        d="M 50 50 C 75 20, 90 30, 90 50 C 90 70, 75 80, 50 50" 
+        fill="none" 
+        stroke="#fef3c7" 
+        strokeWidth="1.2" 
+        strokeLinecap="round"
+        strokeOpacity="0.7"
+      />
 
-    {/* Right Tail (Braided Rope) */}
-    <path 
-      d="M 54 53 C 62 67, 68 77, 76 91" 
-      fill="none" 
-      stroke="#d4af37" 
-      strokeWidth="5.5" 
-      strokeLinecap="round"
-    />
-    <path 
-      d="M 54 53 C 62 67, 68 77, 76 91" 
-      fill="none" 
-      stroke="#800020" 
-      strokeWidth="3.2" 
-      strokeLinecap="round"
-      strokeDasharray="3 3"
-    />
-    <path 
-      d="M 54 53 C 62 67, 68 77, 76 91" 
-      fill="none" 
-      stroke="#fef3c7" 
-      strokeWidth="1" 
-      strokeLinecap="round"
-      strokeOpacity="0.7"
-    />
+      {/* Right Tail (Braided Rope) */}
+      <path 
+        d="M 54 53 C 62 67, 68 77, 76 91" 
+        fill="none" 
+        stroke="#d4af37" 
+        strokeWidth="5.5" 
+        strokeLinecap="round"
+      />
+      <path 
+        d="M 54 53 C 62 67, 68 77, 76 91" 
+        fill="none" 
+        stroke="#800020" 
+        strokeWidth="3.2" 
+        strokeLinecap="round"
+        strokeDasharray="3 3"
+      />
+      <path 
+        d="M 54 53 C 62 67, 68 77, 76 91" 
+        fill="none" 
+        stroke="#fef3c7" 
+        strokeWidth="1" 
+        strokeLinecap="round"
+        strokeOpacity="0.7"
+      />
+    </motion.g>
 
-    {/* Center Wrap (The Tie) */}
-    <rect 
-      x="42" 
-      y="38" 
-      width="16" 
-      height="24" 
-      rx="6" 
-      fill="#d4af37" 
-      stroke="#b8860b" 
-      strokeWidth="1" 
-    />
-    {/* Braided horizontal cord lines on the central tie wrap */}
-    <line x1="43" y1="43" x2="57" y2="43" stroke="#800020" strokeWidth="2.5" strokeDasharray="2 2" />
-    <line x1="43" y1="50" x2="57" y2="50" stroke="#800020" strokeWidth="2.5" strokeDasharray="2 2" />
-    <line x1="43" y1="57" x2="57" y2="57" stroke="#800020" strokeWidth="2.5" strokeDasharray="2 2" />
+    {/* Center Tie and Medallion - unbinds/shrinks/fades out first */}
+    <motion.g
+      animate={isOpen ? { scale: 0, opacity: 0 } : { scale: 1, opacity: 1 }}
+      transition={{ duration: 0.5, ease: "easeOut" }}
+      style={{ transformOrigin: "50px 50px" }}
+    >
+      {/* Center Wrap (The Tie) */}
+      <rect 
+        x="42" 
+        y="38" 
+        width="16" 
+        height="24" 
+        rx="6" 
+        fill="#d4af37" 
+        stroke="#b8860b" 
+        strokeWidth="1" 
+      />
+      {/* Braided horizontal cord lines on the central tie wrap */}
+      <line x1="43" y1="43" x2="57" y2="43" stroke="#800020" strokeWidth="2.5" strokeDasharray="2 2" />
+      <line x1="43" y1="50" x2="57" y2="50" stroke="#800020" strokeWidth="2.5" strokeDasharray="2 2" />
+      <line x1="43" y1="57" x2="57" y2="57" stroke="#800020" strokeWidth="2.5" strokeDasharray="2 2" />
 
-    {/* Golden Royal Medallion on Center Wrap */}
-    <circle cx="50" cy="50" r="7" fill="#d4af37" stroke="#b8860b" strokeWidth="1" />
-    <circle cx="50" cy="50" r="4" fill="#800020" />
-    <circle cx="50" cy="50" r="1.5" fill="#ffffff" />
+      {/* Golden Royal Medallion on Center Wrap */}
+      <circle cx="50" cy="50" r="7" fill="#d4af37" stroke="#b8860b" strokeWidth="1" />
+      <circle cx="50" cy="50" r="4" fill="#800020" />
+      <circle cx="50" cy="50" r="1.5" fill="#ffffff" />
+    </motion.g>
   </svg>
 );
 
@@ -237,10 +258,10 @@ const SingleEventCard = ({ event }) => {
         
         {/* Left half of split title */}
         <div className="absolute top-10 sm:top-14 md:top-24 lg:top-28 right-0 w-full text-right pr-1.5 sm:pr-3 flex flex-col items-end">
-          <span className="font-wedding text-xs sm:text-base md:text-2.5xl lg:text-3.5xl font-bold text-yellow-100 tracking-wide drop-shadow-md">
+          <span className="font-wedding text-sm sm:text-lg md:text-3xl lg:text-4xl font-bold text-yellow-100 tracking-wide drop-shadow-md">
             {leftText}
           </span>
-          <div className="w-4 sm:w-6 md:w-8 h-[1px] bg-amber-400/50 mt-1 sm:mt-2" />
+          <div className="w-6 sm:w-8 md:w-12 h-[1px] bg-amber-400/50 mt-1 sm:mt-2" />
         </div>
         
         {/* Left Rope */}
@@ -264,10 +285,10 @@ const SingleEventCard = ({ event }) => {
         
         {/* Right half of split title */}
         <div className="absolute top-10 sm:top-14 md:top-24 lg:top-28 left-0 w-full text-left pl-1.5 sm:pl-3 flex flex-col items-start">
-          <span className="font-wedding text-xs sm:text-base md:text-2.5xl lg:text-3.5xl font-bold text-yellow-100 tracking-wide drop-shadow-md">
+          <span className="font-wedding text-sm sm:text-lg md:text-3xl lg:text-4xl font-bold text-yellow-100 tracking-wide drop-shadow-md">
             {rightText}
           </span>
-          <div className="w-4 sm:w-6 md:w-8 h-[1px] bg-amber-400/50 mt-1 sm:mt-2" />
+          <div className="w-6 sm:w-8 md:w-12 h-[1px] bg-amber-400/50 mt-1 sm:mt-2" />
         </div>
         
         {/* Right Rope */}
@@ -279,21 +300,31 @@ const SingleEventCard = ({ event }) => {
 
       {/* 3. ROPE KNOT: Floating Lock button (Sits on top in the center) */}
       <motion.div
-        animate={isOpen ? { scale: 0.3, opacity: 0, y: 40, pointerEvents: 'none' } : { scale: 1, opacity: 1, y: 0, pointerEvents: 'auto' }}
-        transition={{ duration: 0.45, ease: "easeOut" }}
+        animate={isOpen
+          ? { opacity: 0, pointerEvents: 'none', visibility: 'hidden' }
+          : { opacity: 1, pointerEvents: 'auto', visibility: 'visible' }}
+        transition={{ duration: 0.4, delay: isOpen ? 0.7 : 0 }}
         className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-30 cursor-pointer flex items-center justify-center w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 lg:w-24 lg:h-24"
         onClick={handleOpen}
       >
         <div className="group relative transition-all duration-300 hover:scale-110 active:scale-95 flex items-center justify-center w-full h-full">
           {/* Animated Glow Halo */}
-          <div className="absolute inset-0 bg-yellow-400/20 rounded-full blur-xl group-hover:bg-yellow-400/40 transition-all duration-300 pointer-events-none" />
+          <motion.div 
+            animate={isOpen ? { scale: 0, opacity: 0 } : { scale: 1, opacity: 1 }}
+            transition={{ duration: 0.3 }}
+            className="absolute inset-0 bg-yellow-400/20 rounded-full blur-xl group-hover:bg-yellow-400/40 transition-all duration-300 pointer-events-none" 
+          />
           
-          <KnotSVG />
+          <KnotSVG isOpen={isOpen} />
           
           {/* Pulsing action text - absolutely positioned below the centered knot */}
-          <span className="absolute top-[48px] sm:top-[64px] md:top-[74px] lg:top-[84px] bg-[#4a0815] text-[#f7e8bd] border border-[#a37a13]/40 px-1.5 py-0.5 sm:px-3 sm:py-1 rounded-full text-[6px] sm:text-[8px] md:text-[9px] font-bold uppercase tracking-[0.2em] shadow-lg animate-pulse whitespace-nowrap z-10 pointer-events-none">
+          <motion.span 
+            animate={isOpen ? { scale: 0.5, opacity: 0, y: 15 } : { scale: 1, opacity: 1, y: 0 }}
+            transition={{ duration: 0.4 }}
+            className="absolute top-[48px] sm:top-[64px] md:top-[74px] lg:top-[84px] bg-[#4a0815] text-[#f7e8bd] border border-[#a37a13]/40 px-1.5 py-0.5 sm:px-3 sm:py-1 rounded-full text-[6px] sm:text-[8px] md:text-[9px] font-bold uppercase tracking-[0.2em] shadow-lg animate-pulse whitespace-nowrap z-10 pointer-events-none"
+          >
             Untie Knot
-          </span>
+          </motion.span>
         </div>
       </motion.div>
 
