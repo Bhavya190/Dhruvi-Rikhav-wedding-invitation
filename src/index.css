@@ -26,13 +26,12 @@ body {
   overflow-x: hidden;
 }
 
-/* Custom Premium Background Gradient */
 .bg-premium-gradient {
   background: linear-gradient(
     135deg,
-    var(--color-premium-pink) 0%,
-    var(--color-premium-purple) 50%,
-    var(--color-romantic-red) 100%
+    #ffeef2 0%,
+    #fffdf6 50%,
+    #f4e8ff 100%
   );
   background-attachment: fixed;
 }
@@ -75,4 +74,54 @@ body {
 
 .backface-hidden {
   backface-visibility: hidden;
+}
+
+/* Envelope Cover Styles */
+.envelope-container {
+  perspective: 1800px;
+}
+
+.envelope-flap {
+  transform-style: preserve-3d;
+  transform-origin: top center;
+  backface-visibility: hidden;
+}
+
+/* Subtle paper texture overlay */
+.paper-texture {
+  background-image: 
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(0,0,0,0.008) 2px,
+      rgba(0,0,0,0.008) 4px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 2px,
+      rgba(0,0,0,0.005) 2px,
+      rgba(0,0,0,0.005) 4px
+    );
+}
+
+/* Seal shimmer animation */
+@keyframes sealShimmer {
+  0%, 100% { box-shadow: 0 0 20px rgba(212,175,55,0.2), 0 0 40px rgba(212,175,55,0.1); }
+  50% { box-shadow: 0 0 30px rgba(212,175,55,0.4), 0 0 60px rgba(212,175,55,0.2); }
+}
+
+.seal-shimmer {
+  animation: sealShimmer 2.5s ease-in-out infinite;
+}
+
+/* Gentle floating animation for the seal */
+@keyframes sealFloat {
+  0%, 100% { transform: translate(-50%, -50%) scale(1); }
+  50% { transform: translate(-50%, -50%) scale(1.03); }
+}
+
+.seal-float {
+  animation: sealFloat 3s ease-in-out infinite;
 }
