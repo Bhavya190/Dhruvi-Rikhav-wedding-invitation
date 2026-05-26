@@ -65,11 +65,11 @@ const DamaskPattern = () => (
         <path d="M 125 155 C 130 145, 142 148, 142 148 C 142 148, 140 158, 125 155 Z" fill="rgba(195,160,80,0.2)" stroke="rgba(180,145,65,0.35)" strokeWidth="0.5" />
       </pattern>
 
-      {/* Soft Light Pink, Cream, and Light Purple gradient base */}
+      {/* Rich Premium Champagne-Cream gradient base */}
       <linearGradient id="flapGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-        <stop offset="0%" stopColor="#ffeef2" />
-        <stop offset="50%" stopColor="#fffdf6" />
-        <stop offset="100%" stopColor="#f4e8ff" />
+        <stop offset="0%" stopColor="#fdfaf2" />
+        <stop offset="50%" stopColor="#f5ebd5" />
+        <stop offset="100%" stopColor="#eadecc" />
       </linearGradient>
 
       {/* Subtle radial highlight in center */}
@@ -130,99 +130,45 @@ const HeroInvite = ({ onOpen }) => {
 
   return (
     <>
-      {/* Inside Invitation Content â€” unchanged */}
-      <section className="relative h-[100svh] flex flex-col items-center justify-between text-center overflow-hidden bg-[#faf6f0]">
+      {/* Inside Invitation Content */}
+      <section className="relative h-[100svh] flex flex-col items-center justify-between text-center overflow-hidden bg-[#fffdf9]">
         
-        {/* Layer 1: Base Background */}
+        {/* Layer 1: Palace Backdrop Background */}
         <motion.img
-          initial={{ opacity: 0, scale: 1.05 }}
-          whileInView={isOpen ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 1.05 }}
-          viewport={{ once: false, amount: 0.15 }}
-          transition={{ duration: 1.8, ease: "easeOut" }}
-          src="/base_background.png"
-          alt="Base Background"
+          initial={{ opacity: 0, scale: 1.03 }}
+          whileInView={isOpen ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 1.03 }}
+          viewport={{ once: false, amount: 0.1 }}
+          transition={{ duration: 3.0, delay: 0.1, ease: "easeOut" }}
+          src="/wedding-palace-background.png"
+          alt="Palace Background"
           className="absolute inset-0 w-full h-full object-cover z-0 select-none pointer-events-none"
         />
 
-        {/* Layer 2: Top Floral Frame */}
+        {/* Layer 2: Floral Decoration Overlay */}
         <motion.img
-          initial={{ opacity: 0, y: -60 }}
-          whileInView={isOpen ? { opacity: 1, y: 0 } : { opacity: 0, y: -60 }}
-          viewport={{ once: false, amount: 0.15 }}
-          transition={{ duration: 1.4, delay: 0.2, ease: "easeOut" }}
-          src="/floral_frame.png"
-          alt="Floral Frame"
-          className="absolute -top-[2%] -left-[1%] w-[102%] h-[27vh] sm:h-[30vh] md:h-[34vh] lg:h-auto object-cover object-top z-10 pointer-events-none mix-blend-multiply select-none"
+          initial={{ opacity: 0, scale: 1.02 }}
+          whileInView={isOpen ? { opacity: 0.95, scale: 1 } : { opacity: 0, scale: 1.02 }}
+          viewport={{ once: false, amount: 0.1 }}
+          transition={{ duration: 2.6, delay: 1.0, ease: "easeOut" }}
+          src="/wedding-floral-decor.png"
+          alt="Floral Decoration"
+          className="absolute inset-0 w-full h-full object-cover z-10 pointer-events-none mix-blend-multiply select-none"
         />
 
-        {/* Layer 3: Peacocks & Architecture - Flanked Left & Right */}
+        {/* Layer 3: Couple Standing Overlay */}
         <motion.img
-          initial={{ opacity: 0, x: -50, y: 20, scale: 0.95 }}
-          whileInView={isOpen ? { opacity: 1, x: 0, y: 0, scale: 1 } : { opacity: 0, x: -50, y: 20, scale: 0.95 }}
-          viewport={{ once: false, amount: 0.15 }}
-          transition={{ duration: 1.6, delay: 0.4, ease: "easeOut" }}
-          src="/peacock_side.png"
-          alt="Left Peacock"
-          className="absolute bottom-0 left-[-10%] sm:left-[-8%] md:left-[-5%] lg:left-[-3%] w-[50%] sm:w-[45%] md:w-[40%] lg:w-[35%] h-[40vh] sm:h-[45vh] md:h-[55vh] lg:h-[65vh] object-contain object-bottom z-20 pointer-events-none mix-blend-multiply select-none scale-x-[-1]"
-        />
-
-        <motion.img
-          initial={{ opacity: 0, x: 50, y: 20, scale: 0.95 }}
-          whileInView={isOpen ? { opacity: 1, x: 0, y: 0, scale: 1 } : { opacity: 0, x: 50, y: 20, scale: 0.95 }}
-          viewport={{ once: false, amount: 0.15 }}
-          transition={{ duration: 1.6, delay: 0.4, ease: "easeOut" }}
-          src="/peacock_side.png"
-          alt="Right Peacock"
-          className="absolute bottom-0 right-[-10%] sm:right-[-8%] md:right-[-5%] lg:right-[-3%] w-[50%] sm:w-[45%] md:w-[40%] lg:w-[35%] h-[40vh] sm:h-[45vh] md:h-[55vh] lg:h-[65vh] object-contain object-bottom z-20 pointer-events-none mix-blend-multiply select-none"
-        />
-
-        {/* Layer 4: The Couple */}
-        <motion.img
-          initial={{ opacity: 0, y: 60, scale: 0.92 }}
-          whileInView={isOpen ? { opacity: 1, y: 0, scale: 1 } : { opacity: 0, y: 60, scale: 0.92 }}
-          viewport={{ once: false, amount: 0.15 }}
-          transition={{ duration: 1.8, delay: 0.7, ease: [0.16, 1, 0.3, 1] }}
-          src="/wedding_couple.png"
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={isOpen ? { opacity: 0.95, y: 0 } : { opacity: 0, y: 40 }}
+          viewport={{ once: false, amount: 0.1 }}
+          transition={{ duration: 2.6, delay: 3.0, ease: "easeOut" }}
+          src="/wedding-couple-render.png"
           alt="Wedding Couple"
-          className="absolute bottom-0 left-1/2 -translate-x-1/2 w-auto h-[42vh] sm:h-[46vh] md:h-[52vh] lg:h-[58vh] object-contain object-bottom z-30 pointer-events-auto mix-blend-multiply select-none"
+          className="absolute bottom-[-5px] right-[-4vw] sm:right-[-2vw] w-auto h-[35vh] sm:h-[41vh] md:h-[47vh] lg:h-[53vh] object-contain object-bottom z-30 pointer-events-none mix-blend-multiply select-none"
         />
 
-        {/* Cinematic Atmospheric Layers */}
-        <div className="absolute inset-0 z-0 pointer-events-none">
-          {/* Floating Soft Orbs */}
-          {[...Array(6)].map((_, i) => (
-            <motion.div
-              key={i}
-              initial={{ 
-                x: Math.random() * 100 + '%', 
-                y: Math.random() * 40 + '%',
-                opacity: 0
-              }}
-              animate={isOpen ? { 
-                y: ['10%', '50%', '10%'],
-                opacity: [0.1, 0.3, 0.1]
-              } : {}}
-              transition={{ 
-                duration: 10 + Math.random() * 10, 
-                repeat: Infinity, 
-                ease: "easeInOut" 
-              }}
-              className="absolute w-32 h-32 md:w-48 md:h-48 rounded-full bg-[#fff4cc] blur-[60px]"
-            />
-          ))}
-
-          {/* Silk Texture Layer */}
-          <div className="absolute inset-0 opacity-[0.03]" 
-               style={{ 
-                 backgroundImage: 'url("https://www.transparenttextures.com/patterns/silk.png")',
-                 backgroundRepeat: 'repeat'
-               }} 
-          />
-        </div>
-
-        {/* Romantic Flower Rain */}
-        <div className="absolute inset-0 z-5 pointer-events-none overflow-hidden">
-          {isOpen && [...Array(16)].map((_, i) => (
+        {/* Flower Dropping Effect — Above background and flowers (z-20) */}
+        <div className="absolute inset-0 z-20 pointer-events-none overflow-hidden">
+          {isOpen && [...Array(22)].map((_, i) => (
             <motion.div
               key={i}
               initial={{ 
@@ -230,27 +176,27 @@ const HeroInvite = ({ onOpen }) => {
                 left: `${Math.random() * 100}%`,
                 opacity: 0,
                 rotate: Math.random() * 360,
-                scale: Math.random() * 0.4 + 0.6
+                scale: Math.random() * 0.4 + 0.5
               }}
               animate={{ 
                 top: '100vh',
-                left: `${(Math.random() * 30 - 15) + (i * 6)}%`,
+                left: `${(Math.random() * 30 - 15) + (i * 4.5)}%`,
                 opacity: [0, 1, 1, 0],
                 rotate: 720,
               }}
               transition={{ 
-                duration: 8 + Math.random() * 12,
+                duration: 7 + Math.random() * 10,
                 repeat: Infinity,
-                delay: i * 1.5,
+                delay: i * 0.8,
                 ease: "linear"
               }}
               className="absolute"
             >
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" className="drop-shadow-[0_2px_2px_rgba(0,0,0,0.1)]">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" className="drop-shadow-[0_2px_4px_rgba(0,0,0,0.06)]">
                 <path 
                   d="M12 2C12 2 18 4 20 10C22 16 18 22 12 22C6 22 2 16 4 10C6 4 12 2 12 2Z" 
-                  fill={i % 2 === 0 ? "#ff99aa" : "#ffb6c1"} 
-                  className="opacity-90"
+                  fill={i % 2 === 0 ? "#ffd9e2" : "#f1e3ff"} 
+                  className="opacity-80"
                 />
                 <path 
                   d="M12 2C13 5 16 8 18 10" 
@@ -262,14 +208,13 @@ const HeroInvite = ({ onOpen }) => {
             </motion.div>
           ))}
         </div>
-
-        {/* Content Container (Typography & Names) */}
-        <div className="absolute top-[18vh] sm:top-[20vh] md:top-[22vh] lg:top-[25vh] left-0 w-full z-40 flex flex-col items-center justify-start pointer-events-none">
+        {/* Content Container (Typography & Names) — Centered vertically and horizontally in the middle of the backdrop */}
+        <div className="absolute inset-0 z-40 flex flex-col items-center justify-center pointer-events-none">
           <motion.div
             initial={{ opacity: 0, y: 15, scale: 0.95 }}
             whileInView={isOpen ? { opacity: 1, y: 0, scale: 1 } : { opacity: 0, y: 15, scale: 0.95 }}
             viewport={{ once: false, amount: 0.15 }}
-            transition={{ delay: 0.9, duration: 1.5, ease: "easeOut" }}
+            transition={{ delay: 2.0, duration: 2.4, ease: "easeOut" }}
             className="flex flex-col items-center pointer-events-auto"
           >
             <h2 className="flex flex-col items-center justify-center mb-2 md:mb-5">
@@ -334,7 +279,7 @@ const HeroInvite = ({ onOpen }) => {
                 animate={flapOpen ? { y: '100%', opacity: 0 } : { y: 0, opacity: 1 }}
                 transition={{ duration: 1.8, ease: [0.4, 0, 0.2, 1], delay: 0.3 }}
                 className="absolute inset-0 z-10"
-                style={{ background: 'linear-gradient(to bottom, #ffeef2, #fffdf6, #f4e8ff)' }}
+                style={{ background: 'linear-gradient(to bottom, #fffefb, #fdfaf2, #faf6ec)' }}
               >
                 {/* Paper texture overlay */}
                 <div className="absolute inset-0 paper-texture" />
@@ -350,10 +295,10 @@ const HeroInvite = ({ onOpen }) => {
                     alt="Proposal Scene"
                     className="w-full h-full object-cover select-none"
                     style={{
-                      opacity: 0.36,
-                      filter: 'sepia(0.15) saturate(0.95) contrast(0.95)',
-                      maskImage: 'linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.55) 15%, rgba(0,0,0,0.85) 75%, transparent 100%)',
-                      WebkitMaskImage: 'linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.55) 15%, rgba(0,0,0,0.85) 75%, transparent 100%)',
+                      opacity: 0.46,
+                      filter: 'sepia(0.12) saturate(1.0) contrast(0.98)',
+                      maskImage: 'linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.65) 15%, rgba(0,0,0,0.92) 75%, transparent 100%)',
+                      WebkitMaskImage: 'linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.65) 15%, rgba(0,0,0,0.92) 75%, transparent 100%)',
                     }}
                   />
                 </div>
