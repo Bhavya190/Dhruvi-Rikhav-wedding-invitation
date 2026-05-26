@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import confetti from 'canvas-confetti';
-import { Heart } from 'lucide-react';
 
 const DigitCard = ({ digit }) => (
   <div className="relative w-[clamp(1.5rem,7.5vw,5rem)] h-[clamp(2.25rem,11.25vw,7.5rem)] bg-[#fdfaf2] border-[1px] sm:border-2 border-slate-700/90 rounded-[3px] sm:rounded-lg shadow-[0_2px_0_#4a3e3d] sm:shadow-[0_5px_0_#4a3e3d] flex items-center justify-center overflow-hidden">
@@ -72,27 +70,6 @@ const CountdownSection = () => {
     return () => clearInterval(timer);
   }, [targetDate]);
 
-  const handleCelebrate = () => {
-    const duration = 3 * 1000;
-    const animationEnd = Date.now() + duration;
-    const defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 9999 };
-
-    const randomInRange = (min, max) => Math.random() * (max - min) + min;
-
-    const interval = setInterval(function() {
-      const timeLeft = animationEnd - Date.now();
-
-      if (timeLeft <= 0) {
-        return clearInterval(interval);
-      }
-
-      const particleCount = 50 * (timeLeft / duration);
-      // since particles fall down, start a bit higher than random
-      confetti({ ...defaults, particleCount, origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 } });
-      confetti({ ...defaults, particleCount, origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 } });
-    }, 250);
-  };
-
   return (
     <section className="relative py-12 md:py-24 px-4 md:px-6 text-center overflow-hidden bg-[#fffdf9]">
 
@@ -130,25 +107,6 @@ const CountdownSection = () => {
           </div>
           <TimeUnit value={timeLeft.seconds} label="Seconds" />
         </div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.5 }}
-          viewport={{ once: true }}
-          className="mt-10 md:mt-16"
-        >
-          <button
-            onClick={handleCelebrate}
-            className="group relative inline-flex items-center gap-3 px-8 md:px-12 py-4 md:py-6 bg-white text-slate-800 rounded-full font-medium tracking-widest uppercase text-[10px] md:text-sm overflow-hidden transition-all hover:scale-105 active:scale-95 shadow-lg hover:shadow-xl border border-pink-100"
-          >
-            <div className="absolute inset-0 bg-gradient-to-r from-pink-50 via-purple-50 to-emerald-50 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-            <Heart className="w-4 h-4 md:w-5 md:h-5 relative z-10 text-pink-500 group-hover:fill-pink-500 animate-pulse" />
-            <span className="relative z-10 bg-gradient-to-r from-pink-600 via-purple-600 to-emerald-600 bg-clip-text text-transparent font-bold">
-              Congratulate the Couple
-            </span>
-          </button>
-        </motion.div>
       </motion.div>
     </section>
   );
