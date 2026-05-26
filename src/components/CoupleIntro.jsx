@@ -2,17 +2,15 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { weddingData } from '../data/weddingData';
 import { Menu, Share2, Camera, Play } from 'lucide-react';
-import floralDecoration from '../assets/floral-decoration.png';
-
 const CoupleIntro = () => {
   return (
-    <section className="relative py-20 md:py-40 px-4 md:px-6 text-center overflow-hidden bg-couple-gradient">
-      {/* Floral Decorations Overlay */}
-      <div className="absolute inset-0 pointer-events-none opacity-40 mix-blend-multiply select-none">
+    <section className="relative py-20 md:py-40 px-4 md:px-6 text-center overflow-hidden bg-[#fffdf9]">
+      {/* Ornate Watercolor Arch Backdrop Overlay */}
+      <div className="absolute inset-0 pointer-events-none opacity-22 select-none">
         <img 
-          src={floralDecoration} 
+          src="https://i.pinimg.com/736x/1d/70/52/1d7052cda2f07b6b573c77a82db555a2.jpg" 
           alt="" 
-          className="w-full h-full object-cover opacity-90 scale-110 brightness-105"
+          className="w-full h-full object-cover object-top opacity-85 scale-110 brightness-105"
         />
       </div>
 
