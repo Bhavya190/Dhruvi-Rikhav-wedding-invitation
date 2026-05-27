@@ -3,153 +3,300 @@ import { motion } from 'framer-motion';
 import { Calendar, Clock, MapPin } from 'lucide-react';
 import { weddingData } from '../data/weddingData';
 
-// Custom highly realistic braided golden-red traditional wedding rope bow knot (Responsive)
-const KnotSVG = ({ isOpen }) => (
+// Custom highly realistic shiny pink satin ribbon bow (Responsive)
+const RibbonSVG = ({ isOpen }) => (
   <svg 
-    viewBox="0 0 100 100" 
-    className="w-full h-full drop-shadow-[0_8px_16px_rgba(0,0,0,0.5)] select-none pointer-events-none"
+    viewBox="0 0 160 120" 
+    className="w-full h-full drop-shadow-[0_8px_16px_rgba(218,149,153,0.45)] select-none pointer-events-none"
   >
-    {/* Left Part (Loop and Tail) - slides left, rotates, and fades out */}
+    {/* Left Loop and Tail of Satin Ribbon */}
     <motion.g
-      animate={isOpen ? { x: -45, y: 5, rotate: -25, opacity: 0 } : { x: 0, y: 0, rotate: 0, opacity: 1 }}
-      transition={{ duration: 1.1, ease: [0.16, 1, 0.3, 1] }}
-      style={{ transformOrigin: "50px 50px" }}
+      animate={isOpen ? { x: -65, y: -5, rotate: -30, scale: 0.7, opacity: 0 } : { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }}
+      transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+      style={{ transformOrigin: "80px 60px" }}
     >
-      {/* Left Outer Loop (Braided Rope) */}
+      {/* Left Loop */}
       <path 
-        d="M 50 50 C 25 20, 10 30, 10 50 C 10 70, 25 80, 50 50" 
+        d="M 80 60 C 50 10, 15 20, 20 55 C 25 80, 55 75, 80 60" 
+        fill="url(#satinPink)" 
+        stroke="#da9599"
+        strokeWidth="1"
+      />
+      {/* Left Highlight Loop */}
+      <path 
+        d="M 75 58 C 55 22, 25 28, 28 50 C 30 65, 52 65, 75 58" 
         fill="none" 
-        stroke="#d4af37" 
-        strokeWidth="6.5" 
-        strokeLinecap="round"
+        stroke="#ffffff"
+        strokeWidth="1.5"
+        strokeOpacity="0.45"
+      />
+      {/* Left Tail */}
+      <path 
+        d="M 76 62 C 55 90, 35 105, 10 115" 
+        fill="none" 
+        stroke="url(#satinPink)" 
+        strokeWidth="13" 
+        strokeLinecap="butt"
       />
       <path 
-        d="M 50 50 C 25 20, 10 30, 10 50 C 10 70, 25 80, 50 50" 
+        d="M 76 62 C 55 90, 35 105, 10 115" 
         fill="none" 
-        stroke="#800020" 
-        strokeWidth="4" 
-        strokeLinecap="round"
-        strokeDasharray="4 4"
-      />
-      <path 
-        d="M 50 50 C 25 20, 10 30, 10 50 C 10 70, 25 80, 50 50" 
-        fill="none" 
-        stroke="#fef3c7" 
-        strokeWidth="1.2" 
-        strokeLinecap="round"
-        strokeOpacity="0.7"
-      />
-
-      {/* Left Tail (Braided Rope) */}
-      <path 
-        d="M 46 53 C 38 67, 32 77, 24 91" 
-        fill="none" 
-        stroke="#d4af37" 
-        strokeWidth="5.5" 
-        strokeLinecap="round"
-      />
-      <path 
-        d="M 46 53 C 38 67, 32 77, 24 91" 
-        fill="none" 
-        stroke="#800020" 
-        strokeWidth="3.2" 
-        strokeLinecap="round"
-        strokeDasharray="3 3"
-      />
-      <path 
-        d="M 46 53 C 38 67, 32 77, 24 91" 
-        fill="none" 
-        stroke="#fef3c7" 
-        strokeWidth="1" 
-        strokeLinecap="round"
-        strokeOpacity="0.7"
+        stroke="#ffffff" 
+        strokeWidth="2" 
+        strokeOpacity="0.3"
       />
     </motion.g>
 
-    {/* Right Part (Loop and Tail) - slides right, rotates, and fades out */}
+    {/* Right Loop and Tail of Satin Ribbon */}
     <motion.g
-      animate={isOpen ? { x: 45, y: 5, rotate: 25, opacity: 0 } : { x: 0, y: 0, rotate: 0, opacity: 1 }}
-      transition={{ duration: 1.1, ease: [0.16, 1, 0.3, 1] }}
-      style={{ transformOrigin: "50px 50px" }}
+      animate={isOpen ? { x: 65, y: -5, rotate: 30, scale: 0.7, opacity: 0 } : { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 }}
+      transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+      style={{ transformOrigin: "80px 60px" }}
     >
-      {/* Right Outer Loop (Braided Rope) */}
+      {/* Right Loop */}
       <path 
-        d="M 50 50 C 75 20, 90 30, 90 50 C 90 70, 75 80, 50 50" 
+        d="M 80 60 C 110 10, 145 20, 140 55 C 135 80, 105 75, 80 60" 
+        fill="url(#satinPink)" 
+        stroke="#da9599"
+        strokeWidth="1"
+      />
+      {/* Right Highlight Loop */}
+      <path 
+        d="M 85 58 C 105 22, 135 28, 132 50 C 130 65, 108 65, 85 58" 
         fill="none" 
-        stroke="#d4af37" 
-        strokeWidth="6.5" 
-        strokeLinecap="round"
+        stroke="#ffffff"
+        strokeWidth="1.5"
+        strokeOpacity="0.45"
+      />
+      {/* Right Tail */}
+      <path 
+        d="M 84 62 C 105 90, 125 105, 150 115" 
+        fill="none" 
+        stroke="url(#satinPink)" 
+        strokeWidth="13" 
+        strokeLinecap="butt"
       />
       <path 
-        d="M 50 50 C 75 20, 90 30, 90 50 C 90 70, 75 80, 50 50" 
+        d="M 84 62 C 105 90, 125 105, 150 115" 
         fill="none" 
-        stroke="#800020" 
-        strokeWidth="4" 
-        strokeLinecap="round"
-        strokeDasharray="4 4"
-      />
-      <path 
-        d="M 50 50 C 75 20, 90 30, 90 50 C 90 70, 75 80, 50 50" 
-        fill="none" 
-        stroke="#fef3c7" 
-        strokeWidth="1.2" 
-        strokeLinecap="round"
-        strokeOpacity="0.7"
-      />
-
-      {/* Right Tail (Braided Rope) */}
-      <path 
-        d="M 54 53 C 62 67, 68 77, 76 91" 
-        fill="none" 
-        stroke="#d4af37" 
-        strokeWidth="5.5" 
-        strokeLinecap="round"
-      />
-      <path 
-        d="M 54 53 C 62 67, 68 77, 76 91" 
-        fill="none" 
-        stroke="#800020" 
-        strokeWidth="3.2" 
-        strokeLinecap="round"
-        strokeDasharray="3 3"
-      />
-      <path 
-        d="M 54 53 C 62 67, 68 77, 76 91" 
-        fill="none" 
-        stroke="#fef3c7" 
-        strokeWidth="1" 
-        strokeLinecap="round"
-        strokeOpacity="0.7"
+        stroke="#ffffff" 
+        strokeWidth="2" 
+        strokeOpacity="0.3"
       />
     </motion.g>
 
-    {/* Center Tie and Medallion - unbinds/shrinks/fades out first */}
+    {/* Central Knot */}
     <motion.g
       animate={isOpen ? { scale: 0, opacity: 0 } : { scale: 1, opacity: 1 }}
       transition={{ duration: 0.5, ease: "easeOut" }}
-      style={{ transformOrigin: "50px 50px" }}
+      style={{ transformOrigin: "80px 60px" }}
     >
-      {/* Center Wrap (The Tie) */}
+      {/* Central Knot Loop Wrap */}
       <rect 
-        x="42" 
-        y="38" 
-        width="16" 
-        height="24" 
-        rx="6" 
-        fill="#d4af37" 
-        stroke="#b8860b" 
+        x="71" 
+        y="49" 
+        width="18" 
+        height="22" 
+        rx="5" 
+        fill="url(#satinPinkKnot)" 
+        stroke="#da9599" 
         strokeWidth="1" 
       />
-      {/* Braided horizontal cord lines on the central tie wrap */}
-      <line x1="43" y1="43" x2="57" y2="43" stroke="#800020" strokeWidth="2.5" strokeDasharray="2 2" />
-      <line x1="43" y1="50" x2="57" y2="50" stroke="#800020" strokeWidth="2.5" strokeDasharray="2 2" />
-      <line x1="43" y1="57" x2="57" y2="57" stroke="#800020" strokeWidth="2.5" strokeDasharray="2 2" />
-
-      {/* Golden Royal Medallion on Center Wrap */}
-      <circle cx="50" cy="50" r="7" fill="#d4af37" stroke="#b8860b" strokeWidth="1" />
-      <circle cx="50" cy="50" r="4" fill="#800020" />
-      <circle cx="50" cy="50" r="1.5" fill="#ffffff" />
+      {/* Soft Knot Highlight */}
+      <path d="M 73 53 Q 80 49 87 53" fill="none" stroke="#ffffff" strokeWidth="1" strokeOpacity="0.5" />
     </motion.g>
+
+    {/* Definitions for Gradients */}
+    <defs>
+      <linearGradient id="satinPink" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stopColor="#f7dbe0" />
+        <stop offset="45%" stopColor="#e8b2b5" />
+        <stop offset="100%" stopColor="#b26d72" />
+      </linearGradient>
+      <linearGradient id="satinPinkKnot" x1="0%" y1="0%" x2="0%" y2="100%">
+        <stop offset="0%" stopColor="#fcecf0" />
+        <stop offset="40%" stopColor="#e8b2b5" />
+        <stop offset="100%" stopColor="#964f54" />
+      </linearGradient>
+    </defs>
+  </svg>
+);
+
+
+
+// Custom highly realistic royal palace arched dome gate (Left half - Royal Jali lattice)
+const LeftGateSVG = () => (
+  <svg 
+    className="absolute inset-0 w-full h-full pointer-events-none z-15 drop-shadow-[2px_0_5px_rgba(178,109,114,0.15)]"
+    viewBox="0 0 100 300"
+    preserveAspectRatio="none"
+  >
+    {/* Rose Gold Gradient definitions */}
+    <defs>
+      <linearGradient id="roseGoldMetal" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stopColor="#f7dbe0" />
+        <stop offset="35%" stopColor="#e8b2b5" />
+        <stop offset="70%" stopColor="#b26d72" />
+        <stop offset="100%" stopColor="#8c484d" />
+      </linearGradient>
+      
+      {/* Solid warm premium cream backing gradient */}
+      <linearGradient id="frostedBacking" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stopColor="#fffdfa" stopOpacity="1" />
+        <stop offset="100%" stopColor="#faf7f2" stopOpacity="1" />
+      </linearGradient>
+    </defs>
+
+    {/* The Frosted Arched Gate Background Panel (Highly Transparent) */}
+    <path 
+      d="M 0 300 L 0 50 C 15 25, 60 10, 100 5 L 100 300 Z" 
+      fill="url(#frostedBacking)" 
+    />
+
+    {/* Outer Arched Frame (Solid Rose Gold Metal) */}
+    <path 
+      d="M 0 300 L 0 50 C 15 25, 60 10, 100 5 L 100 300 Z" 
+      fill="none" 
+      stroke="url(#roseGoldMetal)" 
+      strokeWidth="3.2" 
+    />
+    
+    {/* Inner Fine Border */}
+    <path 
+      d="M 4 300 L 4 54 C 18 30, 62 16, 96 11 L 96 300" 
+      fill="none" 
+      stroke="url(#roseGoldMetal)" 
+      strokeWidth="1.2" 
+      strokeOpacity="0.8"
+    />
+
+    {/* Inner Nested Arched Outline Panel */}
+    <path 
+      d="M 10 300 L 10 60 C 24 38, 64 26, 94 22 L 94 300" 
+      fill="none" 
+      stroke="url(#roseGoldMetal)" 
+      strokeWidth="0.8" 
+      strokeOpacity="0.4" 
+    />
+
+    {/* Romantic Luxury Split Heart (Enlarged) - Left Half */}
+    {/* Outer Heart Outline */}
+    <path 
+      d="M 100 245 C 50 230, 15 190, 15 145 C 15 100, 50 70, 100 115" 
+      fill="none" 
+      stroke="url(#roseGoldMetal)" 
+      strokeWidth="2.8" 
+      strokeLinecap="round"
+      strokeOpacity="0.95"
+    />
+    {/* Inner Gold Heart Outline with Stitched Dash Look */}
+    <path 
+      d="M 100 230 C 58 218, 28 182, 28 145 C 28 108, 58 82, 100 120" 
+      fill="none" 
+      stroke="#d4af37" 
+      strokeWidth="1.3" 
+      strokeDasharray="2.5 2.5"
+      strokeOpacity="0.9"
+    />
+
+    {/* Intricate Filigree Vines inside the Left Heart Lobe */}
+    <path d="M 50 145 Q 70 120, 90 150" fill="none" stroke="url(#roseGoldMetal)" strokeWidth="0.8" strokeOpacity="0.75" />
+    <path d="M 40 165 Q 60 190, 80 170" fill="none" stroke="url(#roseGoldMetal)" strokeWidth="0.8" strokeOpacity="0.75" />
+
+    {/* Romantic Floating Sparkles & Accent Beads */}
+    <circle cx="12" cy="145" r="1.5" fill="#d4af37" />
+    <circle cx="28" cy="92" r="1.2" fill="#d4af37" />
+    <circle cx="50" cy="62" r="1.5" fill="#d4af37" />
+    <circle cx="78" cy="55" r="1.2" fill="#d4af37" />
+    <circle cx="38" cy="235" r="1.5" fill="#d4af37" />
+
+    {/* Elegant corner scrolls */}
+    <path d="M 14 78 C 22 70, 30 55, 30 40" fill="none" stroke="url(#roseGoldMetal)" strokeWidth="0.8" strokeOpacity="0.5" />
+    <path d="M 14 222 C 22 230, 30 245, 30 260" fill="none" stroke="url(#roseGoldMetal)" strokeWidth="0.8" strokeOpacity="0.5" />
+  </svg>
+);
+
+// Custom highly realistic royal palace arched dome gate (Right half - Royal Jali lattice)
+const RightGateSVG = () => (
+  <svg 
+    className="absolute inset-0 w-full h-full pointer-events-none z-15 drop-shadow-[-2px_0_5px_rgba(178,109,114,0.15)]"
+    viewBox="0 0 100 300"
+    preserveAspectRatio="none"
+  >
+    <defs>
+      {/* Solid warm premium cream backing gradient */}
+      <linearGradient id="frostedBacking" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stopColor="#fffdfa" stopOpacity="1" />
+        <stop offset="100%" stopColor="#faf7f2" stopOpacity="1" />
+      </linearGradient>
+    </defs>
+
+    {/* The Frosted Arched Gate Background Panel (Highly Transparent) */}
+    <path 
+      d="M 100 300 L 100 50 C 85 25, 40 10, 0 5 L 0 300 Z" 
+      fill="url(#frostedBacking)" 
+    />
+
+    {/* Outer Arched Frame (Solid Rose Gold Metal) */}
+    <path 
+      d="M 100 300 L 100 50 C 85 25, 40 10, 0 5 L 0 300 Z" 
+      fill="none" 
+      stroke="url(#roseGoldMetal)" 
+      strokeWidth="3.2" 
+    />
+    
+    {/* Inner Fine Border */}
+    <path 
+      d="M 96 300 L 96 54 C 82 30, 38 16, 4 11 L 4 300" 
+      fill="none" 
+      stroke="url(#roseGoldMetal)" 
+      strokeWidth="1.2" 
+      strokeOpacity="0.8"
+    />
+
+    {/* Concentric Inner Arched Border */}
+    <path 
+      d="M 90 300 L 90 60 C 76 38, 36 26, 6 22 L 6 300" 
+      fill="none" 
+      stroke="url(#roseGoldMetal)" 
+      strokeWidth="0.8" 
+      strokeOpacity="0.4" 
+    />
+
+    {/* Romantic Luxury Split Heart (Enlarged) - Right Half */}
+    {/* Outer Heart Outline */}
+    <path 
+      d="M 0 245 C 50 230, 85 190, 85 145 C 85 100, 50 70, 0 115" 
+      fill="none" 
+      stroke="url(#roseGoldMetal)" 
+      strokeWidth="2.8" 
+      strokeLinecap="round"
+      strokeOpacity="0.95"
+    />
+    {/* Inner Gold Heart Outline with Stitched Dash Look */}
+    <path 
+      d="M 0 230 C 42 218, 72 182, 72 145 C 72 108, 42 82, 0 120" 
+      fill="none" 
+      stroke="#d4af37" 
+      strokeWidth="1.3" 
+      strokeDasharray="2.5 2.5"
+      strokeOpacity="0.9"
+    />
+
+    {/* Intricate Filigree Vines inside the Right Heart Lobe */}
+    <path d="M 50 145 Q 30 120, 10 150" fill="none" stroke="url(#roseGoldMetal)" strokeWidth="0.8" strokeOpacity="0.75" />
+    <path d="M 60 165 Q 40 190, 20 170" fill="none" stroke="url(#roseGoldMetal)" strokeWidth="0.8" strokeOpacity="0.75" />
+
+    {/* Romantic Floating Sparkles & Accent Beads - Mirrored */}
+    <circle cx="88" cy="145" r="1.5" fill="#d4af37" />
+    <circle cx="72" cy="92" r="1.2" fill="#d4af37" />
+    <circle cx="50" cy="62" r="1.5" fill="#d4af37" />
+    <circle cx="22" cy="55" r="1.2" fill="#d4af37" />
+    <circle cx="62" cy="235" r="1.5" fill="#d4af37" />
+
+    {/* Delicate clean corner scrolls */}
+    <path d="M 86 78 C 78 70, 70 55, 70 40" fill="none" stroke="url(#roseGoldMetal)" strokeWidth="0.8" strokeOpacity="0.5" />
+    <path d="M 86 222 C 78 230, 70 245, 70 260" fill="none" stroke="url(#roseGoldMetal)" strokeWidth="0.8" strokeOpacity="0.5" />
   </svg>
 );
 
@@ -242,7 +389,7 @@ const SingleEventCard = ({ event }) => {
         </button>
       </div>
 
-      {/* 2. DOORS & COVER (Swings Open to Reveal) */}
+      {/* 2. ROYAL PALACE DOME GATES (Swings Open to Reveal) */}
       
       {/* Left Door */}
       <motion.div
@@ -250,24 +397,21 @@ const SingleEventCard = ({ event }) => {
         animate={isOpen ? { rotateY: -125, opacity: 0, pointerEvents: 'none' } : { rotateY: 0, opacity: 1, pointerEvents: 'auto' }}
         transition={{ duration: 1.3, ease: [0.25, 1, 0.5, 1], delay: 0.15 }}
         style={{ transformOrigin: 'left center' }}
-        className="absolute left-0 top-0 w-1/2 h-full z-20 overflow-hidden rounded-l-[1.5rem] sm:rounded-l-[2rem] md:rounded-l-[2.5rem] preserve-3d"
+        className="absolute left-0 top-0 w-1/2 h-full z-20 preserve-3d"
       >
-        {/* Door Background & Gold Borders */}
-        <div className="absolute inset-0 bg-gradient-to-br from-rose-950 via-[#631928] to-red-950 shadow-[inset_-6px_0_15px_rgba(0,0,0,0.6)] border-r border-amber-600/30" />
-        <div className="absolute inset-2 sm:inset-3 md:inset-4 mr-0 border-t border-b border-l border-amber-400/25 rounded-l-lg sm:rounded-l-xl md:rounded-l-2xl" />
-        
-        {/* Left half of split title */}
-        <div className="absolute top-10 sm:top-14 md:top-24 lg:top-28 right-0 w-full text-right pr-1.5 sm:pr-3 flex flex-col items-end">
-          <span className="font-wedding text-sm sm:text-lg md:text-3xl lg:text-4xl font-bold text-yellow-100 tracking-wide drop-shadow-md">
+        <LeftGateSVG />
+
+        {/* Left half of split title (Rose Gold Letterpress Look) */}
+        <div className="absolute top-10 sm:top-14 md:top-24 lg:top-28 right-0.5 sm:right-1 md:right-1.5 lg:right-2 text-right flex flex-col items-end z-20 max-w-[calc(100%-12px)]">
+          <span className="font-wedding text-[16px] xs:text-[20px] sm:text-[30px] md:text-[42px] lg:text-[50px] font-extrabold text-[#6b2129] tracking-wide drop-shadow-[0_2px_3px_rgba(0,0,0,0.12)] whitespace-nowrap">
             {leftText}
           </span>
-          <div className="w-6 sm:w-8 md:w-12 h-[1px] bg-amber-400/50 mt-1 sm:mt-2" />
+          <div className="w-4 sm:w-6 md:w-8 h-[1px] bg-pink-300/50 mt-1" />
         </div>
         
-        {/* Left Rope */}
+        {/* Left Ribbon Strap Banner */}
         <div 
-          className="absolute right-0 top-1/2 -translate-y-1/2 h-[4px] sm:h-[6px] lg:h-[8px] w-[85%] bg-gradient-to-r from-transparent via-amber-400 to-amber-600 rounded-l-full shadow-lg z-10"
-          style={{ backgroundImage: 'repeating-linear-gradient(45deg, #d4af37, #d4af37 4px, #800020 4px, #800020 8px)' }}
+          className="absolute right-0 top-1/2 -translate-y-1/2 h-[6px] sm:h-[10px] lg:h-[12px] w-[80%] bg-gradient-to-r from-transparent via-[#f5d0d6] to-[#e8b2b5] shadow-sm z-10 opacity-90"
         />
       </motion.div>
 
@@ -277,53 +421,50 @@ const SingleEventCard = ({ event }) => {
         animate={isOpen ? { rotateY: 125, opacity: 0, pointerEvents: 'none' } : { rotateY: 0, opacity: 1, pointerEvents: 'auto' }}
         transition={{ duration: 1.3, ease: [0.25, 1, 0.5, 1], delay: 0.15 }}
         style={{ transformOrigin: 'right center' }}
-        className="absolute right-0 top-0 w-1/2 h-full z-20 overflow-hidden rounded-r-[1.5rem] sm:rounded-r-[2rem] md:rounded-r-[2.5rem] preserve-3d"
+        className="absolute right-0 top-0 w-1/2 h-full z-20 preserve-3d"
       >
-        {/* Door Background & Gold Borders */}
-        <div className="absolute inset-0 bg-gradient-to-br from-rose-950 via-[#631928] to-red-950 shadow-[inset_6px_0_15px_rgba(0,0,0,0.6)] border-l border-amber-600/30" />
-        <div className="absolute inset-2 sm:inset-3 md:inset-4 ml-0 border-t border-b border-r border-amber-400/25 rounded-r-lg sm:rounded-r-xl md:rounded-r-2xl" />
-        
-        {/* Right half of split title */}
-        <div className="absolute top-10 sm:top-14 md:top-24 lg:top-28 left-0 w-full text-left pl-1.5 sm:pl-3 flex flex-col items-start">
-          <span className="font-wedding text-sm sm:text-lg md:text-3xl lg:text-4xl font-bold text-yellow-100 tracking-wide drop-shadow-md">
+        <RightGateSVG />
+
+        {/* Right half of split title (Rose Gold Letterpress Look) */}
+        <div className="absolute top-10 sm:top-14 md:top-24 lg:top-28 left-0.5 sm:left-1 md:left-1.5 lg:left-2 text-left flex flex-col items-start z-20 max-w-[calc(100%-12px)]">
+          <span className="font-wedding text-[16px] xs:text-[20px] sm:text-[30px] md:text-[42px] lg:text-[50px] font-extrabold text-[#6b2129] tracking-wide drop-shadow-[0_2px_3px_rgba(0,0,0,0.12)] whitespace-nowrap">
             {rightText}
           </span>
-          <div className="w-6 sm:w-8 md:w-12 h-[1px] bg-amber-400/50 mt-1 sm:mt-2" />
+          <div className="w-4 sm:w-6 md:w-8 h-[1px] bg-pink-300/50 mt-1" />
         </div>
         
-        {/* Right Rope */}
+        {/* Right Ribbon Strap Banner */}
         <div 
-          className="absolute left-0 top-1/2 -translate-y-1/2 h-[4px] sm:h-[6px] lg:h-[8px] w-[85%] bg-gradient-to-l from-transparent via-amber-400 to-amber-600 rounded-r-full shadow-lg z-10"
-          style={{ backgroundImage: 'repeating-linear-gradient(-45deg, #d4af37, #d4af37 4px, #800020 4px, #800020 8px)' }}
+          className="absolute left-0 top-1/2 -translate-y-1/2 h-[6px] sm:h-[10px] lg:h-[12px] w-[80%] bg-gradient-to-l from-transparent via-[#f5d0d6] to-[#e8b2b5] shadow-sm z-10 opacity-90"
         />
       </motion.div>
 
-      {/* 3. ROPE KNOT: Floating Lock button (Sits on top in the center) */}
+      {/* 3. SHINY PINK RIBBON BOW: Floating center lock button */}
       <motion.div
         animate={isOpen
           ? { opacity: 0, pointerEvents: 'none', visibility: 'hidden' }
           : { opacity: 1, pointerEvents: 'auto', visibility: 'visible' }}
         transition={{ duration: 0.4, delay: isOpen ? 0.7 : 0 }}
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-30 cursor-pointer flex items-center justify-center w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 lg:w-24 lg:h-24"
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-30 cursor-pointer flex items-center justify-center w-24 h-18 sm:w-32 sm:h-24 md:w-36 md:h-28 lg:w-40 lg:h-30"
         onClick={handleOpen}
       >
         <div className="group relative transition-all duration-300 hover:scale-110 active:scale-95 flex items-center justify-center w-full h-full">
-          {/* Animated Glow Halo */}
+          {/* Soft Pink Glow Halo */}
           <motion.div 
             animate={isOpen ? { scale: 0, opacity: 0 } : { scale: 1, opacity: 1 }}
             transition={{ duration: 0.3 }}
-            className="absolute inset-0 bg-yellow-400/20 rounded-full blur-xl group-hover:bg-yellow-400/40 transition-all duration-300 pointer-events-none" 
+            className="absolute inset-0 bg-pink-300/25 rounded-full blur-xl group-hover:bg-pink-300/40 transition-all duration-300 pointer-events-none" 
           />
           
-          <KnotSVG isOpen={isOpen} />
+          <RibbonSVG isOpen={isOpen} />
           
-          {/* Pulsing action text - absolutely positioned below the centered knot */}
+          {/* Pulsing action text - absolutely positioned below the centered ribbon bow */}
           <motion.span 
             animate={isOpen ? { scale: 0.5, opacity: 0, y: 15 } : { scale: 1, opacity: 1, y: 0 }}
             transition={{ duration: 0.4 }}
-            className="absolute top-[48px] sm:top-[64px] md:top-[74px] lg:top-[84px] bg-[#4a0815] text-[#f7e8bd] border border-[#a37a13]/40 px-1.5 py-0.5 sm:px-3 sm:py-1 rounded-full text-[6px] sm:text-[8px] md:text-[9px] font-bold uppercase tracking-[0.2em] shadow-lg animate-pulse whitespace-nowrap z-10 pointer-events-none"
+            className="absolute bottom-[-16px] sm:bottom-[-22px] md:bottom-[-26px] lg:bottom-[-30px] bg-[#611e25] text-[#fde4e6] border border-pink-300/30 px-2 py-0.5 sm:px-3 sm:py-1 rounded-full text-[6px] sm:text-[8px] md:text-[9px] font-bold uppercase tracking-[0.2em] shadow-lg animate-pulse whitespace-nowrap z-10 pointer-events-none"
           >
-            Untie Knot
+            Untie Ribbon
           </motion.span>
         </div>
       </motion.div>
@@ -334,7 +475,7 @@ const SingleEventCard = ({ event }) => {
 
 const RopeKnotOpeningCard = () => {
   return (
-    <section className="relative py-12 md:py-28 px-2 sm:px-4 md:px-8 overflow-hidden bg-couple-gradient">
+    <section className="relative py-12 md:py-28 px-2 sm:px-4 md:px-8 overflow-hidden bg-[#fffdf9]">
       {/* Background Subtle Sparkles/Floral Elements */}
       <div className="absolute inset-0 pointer-events-none opacity-5 bg-[radial-gradient(#d4af37_1px,transparent_1px)] [background-size:24px_24px]" />
       
