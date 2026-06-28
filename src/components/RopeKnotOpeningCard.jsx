@@ -525,6 +525,25 @@ const RopeKnotOpeningCard = () => {
               <SingleEventCard event={event} />
             </motion.div>
           ))}
+
+          {/* Decorative Dance Image to fill the 6th slot */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 0.85, scale: 1 }}
+            viewport={{ once: true, margin: "-30px" }}
+            transition={{ duration: 1.5, ease: "easeOut", delay: 0.2 }}
+            className="relative w-full h-[220px] sm:h-[255px] md:h-[330px] lg:h-[350px] flex items-center justify-center overflow-hidden"
+          >
+            <img 
+              src="/dulha-dulhan-dance.png" 
+              alt="Dulha Dulhan Dancing" 
+              className="w-full h-full object-contain select-none pointer-events-none mix-blend-multiply"
+              style={{
+                maskImage: 'radial-gradient(circle, rgba(0,0,0,1) 50%, rgba(0,0,0,0) 100%)',
+                WebkitMaskImage: 'radial-gradient(circle, rgba(0,0,0,1) 50%, rgba(0,0,0,0) 100%)',
+              }}
+            />
+          </motion.div>
         </div>
 
       </div>
