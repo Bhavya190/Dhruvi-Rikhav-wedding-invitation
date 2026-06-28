@@ -163,7 +163,7 @@ const HeroInvite = ({ onOpen }) => {
           transition={{ duration: 2.6, delay: 3.0, ease: "easeOut" }}
           src="/wedding-couple-render.png"
           alt="Wedding Couple"
-          className="absolute bottom-[-5px] right-[-4vw] sm:right-[-2vw] w-auto h-[35vh] sm:h-[41vh] md:h-[47vh] lg:h-[53vh] object-contain object-bottom z-30 pointer-events-none mix-blend-multiply select-none"
+          className="absolute bottom-[-5px] right-[-4vw] sm:right-[-2vw] w-auto h-[30vh] sm:h-[36vh] md:h-[42vh] lg:h-[53vh] object-contain object-bottom z-30 pointer-events-none mix-blend-multiply select-none"
         />
 
         {/* Flower Dropping Effect — Above background and flowers (z-20) */}
