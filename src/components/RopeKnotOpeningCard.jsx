@@ -327,58 +327,72 @@ const SingleEventCard = ({ event }) => {
         <div className="absolute inset-2 sm:inset-3 md:inset-4 border border-amber-500/10 rounded-[1rem] sm:rounded-[1.4rem] md:rounded-[1.8rem] pointer-events-none" />
 
         {/* Top Header & Ceremony Name */}
-        <div className="relative z-10 w-full mt-1 sm:mt-2 md:mt-4">
-          <span className="text-[9px] sm:text-[10px] md:text-xs uppercase tracking-[0.2em] text-amber-700/80 font-bold block mb-0.5 sm:mb-1">
-            You Are Invited
-          </span>
-          <h3 className="font-wedding text-sm sm:text-lg md:text-2xl lg:text-3xl text-heading-navy font-bold tracking-wide mb-0.5 sm:mb-1 leading-tight px-1">
-            {event.name}
-          </h3>
-          
-          {/* Decorative Gold Flourish - Hidden on tiny mobile screens to save space */}
-          <svg className="w-16 sm:w-24 md:w-32 h-3 sm:h-5 md:h-6 mx-auto my-0.5 sm:my-1.5 text-amber-600/60" viewBox="0 0 200 40" fill="none" stroke="currentColor">
-            <path d="M20 20 Q50 10 100 20 Q150 30 180 20" strokeWidth="1" strokeLinecap="round" />
-            <path d="M100 20 C90 10 90 30 100 20 C110 10 110 30 100 20" strokeWidth="1.5" fill="currentColor" />
-            <circle cx="60" cy="18" r="1.5" fill="currentColor" />
-            <circle cx="140" cy="22" r="1.5" fill="currentColor" />
-          </svg>
-        </div>
+        {event.id !== 6 && (
+          <div className="relative z-10 w-full mt-1 sm:mt-2 md:mt-4">
+            <span className="text-[9px] sm:text-[10px] md:text-xs uppercase tracking-[0.2em] text-amber-700/80 font-bold block mb-0.5 sm:mb-1">
+              You Are Invited
+            </span>
+            <h3 className="font-wedding text-sm sm:text-lg md:text-2xl lg:text-3xl text-heading-navy font-bold tracking-wide mb-0.5 sm:mb-1 leading-tight px-1">
+              {event.name}
+            </h3>
+            
+            {/* Decorative Gold Flourish - Hidden on tiny mobile screens to save space */}
+            <svg className="w-16 sm:w-24 md:w-32 h-3 sm:h-5 md:h-6 mx-auto my-0.5 sm:my-1.5 text-amber-600/60" viewBox="0 0 200 40" fill="none" stroke="currentColor">
+              <path d="M20 20 Q50 10 100 20 Q150 30 180 20" strokeWidth="1" strokeLinecap="round" />
+              <path d="M100 20 C90 10 90 30 100 20 C110 10 110 30 100 20" strokeWidth="1.5" fill="currentColor" />
+              <circle cx="60" cy="18" r="1.5" fill="currentColor" />
+              <circle cx="140" cy="22" r="1.5" fill="currentColor" />
+            </svg>
+          </div>
+        )}
 
         {/* Ceremony Details */}
-        <div className="relative z-10 space-y-1 sm:space-y-2 md:space-y-3.5 lg:space-y-4 w-full px-1 max-w-sm">
-          {/* Date */}
-          <div className="flex items-center gap-1.5 sm:gap-2 md:gap-3 text-slate-700 justify-center">
-            <div className="w-5 h-5 sm:w-6 sm:h-6 md:w-8 md:h-8 rounded-full bg-pink-50 flex items-center justify-center shrink-0 border border-pink-100">
-              <Calendar className="text-pink-500 w-3 h-3 sm:w-3.5 sm:h-3.5 md:w-4.5 md:h-4.5" />
+        {event.id === 6 ? (
+          <div className="relative z-10 w-full px-1 max-w-sm flex-1 flex items-center justify-center my-auto">
+            <div className="w-full flex justify-center items-center h-36 sm:h-44 md:h-60 lg:h-64 overflow-hidden">
+              <img 
+                src="/dulha-dulhan-dance.png" 
+                alt="Grand Reception Dance" 
+                className="max-h-full w-auto object-contain mix-blend-multiply"
+              />
             </div>
-            <span className="text-[11px] sm:text-xs md:text-sm lg:text-base font-semibold tracking-wide">{event.date}</span>
           </div>
-
-          {/* Time */}
-          <div className="flex items-center gap-1.5 sm:gap-2 md:gap-3 text-slate-700 justify-center">
-            <div className="w-5 h-5 sm:w-6 sm:h-6 md:w-8 md:h-8 rounded-full bg-purple-50 flex items-center justify-center shrink-0 border border-purple-100">
-              <Clock className="text-purple-500 w-3 h-3 sm:w-3.5 sm:h-3.5 md:w-4.5 md:h-4.5" />
+        ) : (
+          <div className="relative z-10 space-y-1 sm:space-y-2 md:space-y-3.5 lg:space-y-4 w-full px-1 max-w-sm">
+            {/* Date */}
+            <div className="flex items-center gap-1.5 sm:gap-2 md:gap-3 text-slate-700 justify-center">
+              <div className="w-5 h-5 sm:w-6 sm:h-6 md:w-8 md:h-8 rounded-full bg-pink-50 flex items-center justify-center shrink-0 border border-pink-100">
+                <Calendar className="text-pink-500 w-3 h-3 sm:w-3.5 sm:h-3.5 md:w-4.5 md:h-4.5" />
+              </div>
+              <span className="text-[11px] sm:text-xs md:text-sm lg:text-base font-semibold tracking-wide">{event.date}</span>
             </div>
-            <span className="text-[11px] sm:text-xs md:text-sm lg:text-base font-semibold tracking-wide">{event.time}</span>
-          </div>
 
-          {/* Location */}
-          <div className="flex items-center gap-1.5 sm:gap-2 md:gap-3 text-slate-700 justify-center">
-            <div className="w-5 h-5 sm:w-6 sm:h-6 md:w-8 md:h-8 rounded-full bg-rose-50 flex items-center justify-center shrink-0 border border-rose-100">
-              <MapPin className="text-rose-500 w-3 h-3 sm:w-3.5 sm:h-3.5 md:w-4.5 md:h-4.5" />
+            {/* Time */}
+            <div className="flex items-center gap-1.5 sm:gap-2 md:gap-3 text-slate-700 justify-center">
+              <div className="w-5 h-5 sm:w-6 sm:h-6 md:w-8 md:h-8 rounded-full bg-purple-50 flex items-center justify-center shrink-0 border border-purple-100">
+                <Clock className="text-purple-500 w-3 h-3 sm:w-3.5 sm:h-3.5 md:w-4.5 md:h-4.5" />
+              </div>
+              <span className="text-[11px] sm:text-xs md:text-sm lg:text-base font-semibold tracking-wide">{event.time}</span>
             </div>
-            <span className="text-[11px] sm:text-xs md:text-sm lg:text-base font-semibold tracking-wide truncate max-w-[100px] sm:max-w-[160px] md:max-w-[200px]">
-              {event.location}
-            </span>
-          </div>
 
-          {/* Elegant Quote Description */}
-          <div className="bg-amber-50/60 border border-amber-100/50 p-1 sm:p-2 md:p-3 rounded-lg sm:rounded-xl md:rounded-2xl">
-            <p className="text-[10px] sm:text-xs md:text-sm text-slate-600 italic leading-relaxed">
-              "{event.description}"
-            </p>
+            {/* Location */}
+            <div className="flex items-center gap-1.5 sm:gap-2 md:gap-3 text-slate-700 justify-center">
+              <div className="w-5 h-5 sm:w-6 sm:h-6 md:w-8 md:h-8 rounded-full bg-rose-50 flex items-center justify-center shrink-0 border border-rose-100">
+                <MapPin className="text-rose-500 w-3 h-3 sm:w-3.5 sm:h-3.5 md:w-4.5 md:h-4.5" />
+              </div>
+              <span className="text-[11px] sm:text-xs md:text-sm lg:text-base font-semibold tracking-wide truncate max-w-[100px] sm:max-w-[160px] md:max-w-[200px]">
+                {event.location}
+              </span>
+            </div>
+
+            {/* Elegant Quote Description */}
+            <div className="bg-amber-50/60 border border-amber-100/50 p-1 sm:p-2 md:p-3 rounded-lg sm:rounded-xl md:rounded-2xl">
+              <p className="text-[10px] sm:text-xs md:text-sm text-slate-600 italic leading-relaxed">
+                "{event.description}"
+              </p>
+            </div>
           </div>
-        </div>
+        )}
 
         {/* Close Button */}
         <button 
@@ -526,24 +540,7 @@ const RopeKnotOpeningCard = () => {
             </motion.div>
           ))}
 
-          {/* Decorative Dance Image to fill the 6th slot */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 0.85, scale: 1 }}
-            viewport={{ once: true, margin: "-30px" }}
-            transition={{ duration: 1.5, ease: "easeOut", delay: 0.2 }}
-            className="relative w-full h-[220px] sm:h-[255px] md:h-[330px] lg:h-[350px] flex items-center justify-center overflow-hidden"
-          >
-            <img 
-              src="/dulha-dulhan-dance.png" 
-              alt="Dulha Dulhan Dancing" 
-              className="w-full h-full object-contain select-none pointer-events-none mix-blend-multiply"
-              style={{
-                maskImage: 'radial-gradient(circle, rgba(0,0,0,1) 50%, rgba(0,0,0,0) 100%)',
-                WebkitMaskImage: 'radial-gradient(circle, rgba(0,0,0,1) 50%, rgba(0,0,0,0) 100%)',
-              }}
-            />
-          </motion.div>
+          {/* Standalone image removed as it is now inside the Grand Reception card */}
         </div>
 
       </div>

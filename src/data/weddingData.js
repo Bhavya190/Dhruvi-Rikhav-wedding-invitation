@@ -50,14 +50,14 @@ export const weddingData = {
       location: "Main Mandap",
       description: "The main wedding rituals."
     },
-    // {
-    //   id: 6,
-    //   date: "12/02/2027",
-    //   time: "08:00 PM",
-    //   name: "Grand Reception",
-    //   location: "Imperial Hall",
-    //   description: "A night to remember."
-    // }
+    {
+      id: 6,
+      date: "12/02/2027",
+      time: "08:00 PM",
+      name: "Grand Reception",
+      location: "Imperial Hall",
+      description: "A night to remember."
+    }
   ],
   timeline: [
     { year: "2020", event: "The First Meeting", description: "Where it all began at a coffee shop." },
