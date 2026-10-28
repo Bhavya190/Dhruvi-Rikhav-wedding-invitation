@@ -1,54 +1,56 @@
 export const weddingData = {
   bride: "Dhruvi",
   groom: "Rikhav",
-  dates: ["11/02/2027", "12/02/2027"],
+  dates: ["10/02/2027", "12/02/2027"],
   whatsappNumber: "+910000000000", // Placeholder
   venue: {
-    name: "The Royal Orchid Palace",
-    address: "Ambience Island, DLF Phase 3, Gurgaon, Haryana 122002",
-    mapLink: "https://goo.gl/maps/placeholder",
-    mapEmbedLink: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3506.223391312166!2d77.08507631508053!3d28.502903982468314!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d19472658a081%3A0xc07a8b6f3c5b8a0!2sAmbience%20Mall!5e0!3m2!1sen!2sin!4v1650000000000!5m2!1sen!2sin"
+    name: "Hotel City RM",
+    address: "Idar, Gujarat 383430",
+    mapLink: "https://maps.app.goo.gl/wwL6iXQPyraGVwoW9",
+    mapEmbedLink: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3649.775655469351!2d73.0002414!3d23.8265754!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395da3f1254ee4cf%3A0x5f4457f41d34e018!2sHotel%20City%20RM%2CIdar!5e0!3m2!1sen!2sin!4v1793207349723!5m2!1sen!2sin "
   },
   events: [
     {
       id: 1,
-      date: "11/02/2027",
-      time: "10:00 AM",
+      date: "10/02/2027",
+      time: "08:00 PM",
       name: "Mehndi Ceremony",
-      location: "Grand Ballroom",
-      description: "A morning of henna and happiness."
+      // location: "Hotel City RM",
+      description: "Henna, happiness & endless smiles!💚"
     },
     {
       id: 2,
       date: "11/02/2027",
-      time: "02:00 PM",
-      name: "Sangeet Night",
-      location: "Poolside Deck",
-      description: "Dance, music, and celebration."
+      time: "07:00 AM",
+      name: "Haldi Ceremony",
+      // location: "Hotel City RM",
+      description: "A splash of haldi, a shower of love!🌼"
     },
     {
       id: 3,
       date: "11/02/2027",
-      time: "07:00 PM",
-      name: "Family Dinner",
-      location: "Rooftop Garden",
-      description: "An intimate gathering with loved ones."
+      time: "10:00 AM",
+      name: "Jin Darshan",
+      // location: "From Home",
+      description: "Seeking divine blessings for our forever.🪷"
     },
     {
       id: 4,
-      date: "12/02/2027",
-      time: "09:00 AM",
-      name: "Haldi Ceremony",
-      location: "Courtyard",
-      description: "Blessing the couple with turmeric and love."
+      date: "11/02/2027",
+      time: "08:30 PM",
+      name: "Sangeet Night",
+      // location: "Hotel City RM",
+      description: "Let the music play & our love shine!✨"
     },
+    
+    
     {
       id: 5,
       date: "12/02/2027",
-      time: "01:00 PM",
+      time: "11:00 AM",
       name: "Wedding Ceremony",
-      location: "Main Mandap",
-      description: "The main wedding rituals."
+      // location: "Hotel City RM",
+      description: "Promises made, destinies intertwined.🌟"
     },
     // {
     //   id: 6,

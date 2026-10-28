@@ -249,7 +249,7 @@ const HeroInvite = ({ onOpen }) => {
           whileInView={isOpen ? { opacity: 1 } : {}}
           viewport={{ once: false }}
           transition={{ delay: 2.5, duration: 1 }}
-          className="absolute bottom-6 left-1/2 -translate-x-1/2 z-50 flex flex-col items-center justify-center text-[#ff0f37ff] pointer-events-auto"
+          className="absolute bottom-6 left-1/2 -translate-x-1/2 z-50 flex flex-col items-center justify-center text-[#e60076] pointer-events-auto"
         >
           <span className="uppercase tracking-widest text-[9px] md:text-xs font-semibold mb-1 opacity-90">Scroll to see more</span>
           <div className="animate-bounce mt-1">

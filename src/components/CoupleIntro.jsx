@@ -89,8 +89,7 @@ const CoupleIntro = () => {
           transition={{ duration: 0.8, delay: 0.8 }}
           className="text-base sm:text-lg md:text-2xl lg:text-3xl text-subtext-blue italic font-light leading-relaxed max-w-4xl mx-auto px-4"
         >
-          "Two souls with but a single thought, two hearts that beat as one. 
-          Join us as we embark on our greatest adventure yet."
+          *“Two hearts, one destiny, and a love story written in the stars. Together, we begin our forever.”* ❣️❣️❣️
         </motion.p>
 
         <motion.div

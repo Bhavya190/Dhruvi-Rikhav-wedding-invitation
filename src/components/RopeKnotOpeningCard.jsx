@@ -363,14 +363,14 @@ const SingleEventCard = ({ event }) => {
           </div>
 
           {/* Location */}
-          <div className="flex items-center gap-1.5 sm:gap-2 md:gap-3 text-slate-700 justify-center">
+          {/* <div className="flex items-center gap-1.5 sm:gap-2 md:gap-3 text-slate-700 justify-center">
             <div className="w-5 h-5 sm:w-6 sm:h-6 md:w-8 md:h-8 rounded-full bg-rose-50 flex items-center justify-center shrink-0 border border-rose-100">
               <MapPin className="text-rose-500 w-3 h-3 sm:w-3.5 sm:h-3.5 md:w-4.5 md:h-4.5" />
             </div>
             <span className="text-[11px] sm:text-xs md:text-sm lg:text-base font-semibold tracking-wide truncate max-w-[100px] sm:max-w-[160px] md:max-w-[200px]">
               {event.location}
             </span>
-          </div>
+          </div> */}
 
           {/* Elegant Quote Description */}
           <div className="bg-amber-50/60 border border-amber-100/50 p-1 sm:p-2 md:p-3 rounded-lg sm:rounded-xl md:rounded-2xl">
